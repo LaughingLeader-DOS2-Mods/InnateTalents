@@ -1,0 +1,4 @@
+requirement "QuickStep",""
+
+requirement "Executioner","WarriorLore 1"
+

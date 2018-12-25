@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<save>
+    <header version="2" />
+    <version major="3" minor="6" revision="1" build="0" />
+    <region id="MetaData">
+        <node id="root">
+            <attribute id="Module" value="604d921c-6f9c-4454-a3d0-ac99d469c1b2" type="23" />
+            <attribute id="Name" value="InnateTalents" type="23" />
+            <attribute id="Type" value="Add-on" type="23" />
+            <attribute id="UUID" value="f3fd3631-c1d9-41ef-b694-626b21f9af98" type="23" />
+        </node>
+    </region>
+</save>
