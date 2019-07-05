@@ -165,4 +165,6 @@ DB_QuestDef_CloseAtRegionEnded_Conditions_FalseObjFlag_FalseObjFlag 5
 DB_SubregionMarker 3
 DB_Children 1
 DB_Mystery 1DB_LeaderLib_ModApi_RegisterMod 3
-DB_LeaderLib_ModApi_RegisterActiveGoal 3DB_LeaderLib_ModApi_RegisterMenu 5DB_Mods_ActiveGoal 3
+DB_LeaderLib_ModApi_RegisterActiveGoal 3
+DB_LeaderLib_ModApi_RegisterMenu 5
+DB_Mods_ActiveGoal 3

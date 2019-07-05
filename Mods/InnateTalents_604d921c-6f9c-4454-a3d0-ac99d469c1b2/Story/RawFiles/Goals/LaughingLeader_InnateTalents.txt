@@ -3,7 +3,64 @@ SubGoalCombiner SGC_AND
 INITSECTION
 LLINNATE_InitSettings();
 KBSECTION
+
+//REGION SETTINGS
+PROC
+LLINNATE_InitSettings()
+THEN
+DB_LLINNATE_Skills_Race("REALLY_DWARF", "Target_PetrifyingTouch");
+DB_LLINNATE_Skills_Race("REALLY_ELF", "Shout_FleshSacrifice");
+DB_LLINNATE_Skills_Race("REALLY_HUMAN", "Shout_InspireStart");
+DB_LLINNATE_Skills_Race("REALLY_LIZARD", "Cone_Flamebreath");
+
+DB_LLINNATE_Skills_Origins("IFAN", "Summon_SoulWolf");
+DB_LLINNATE_Skills_Origins("RED_PRINCE", "Target_DemonicStare");
+DB_LLINNATE_Skills_Origins("SEBILLE", "Shout_BreakTheShackles");
+DB_LLINNATE_Skills_Origins("BEAST", "Target_Squall");
+DB_LLINNATE_Skills_Origins("LOHSE", "Target_MaddeningSong");
+DB_LLINNATE_Skills_Origins("FANE", "Target_TimeWarp");
+DB_LLINNATE_Skills_Origins("GENERIC", "Dome_CircleOfProtection");
+
+//Flag, Racial Skill Replacer, Origin Skill Replacer
+DB_LLINNATE_Skills_Replacers("LLINNATE_SkillReplacer_Necromancer", "Shout_LLINNATE_FleshSacrifice_Necromancer", "Storm_LLINNATE_DeathStorm");
+DB_LLINNATE_Skills_Replacers("LLINNATE_SkillReplacer_TimeWarp", "", "Target_TimeWarp");
+DB_LLINNATE_Skills_Replacers("LLINNATE_SkillReplacer_Elf", "Shout_FleshSacrifice", "");
+DB_LLINNATE_Skills_Replacers("LLINNATE_SkillReplacer_Dwarf", "Target_PetrifyingTouch", "");
+DB_LLINNATE_Skills_Replacers("LLINNATE_SkillReplacer_Human", "Shout_InspireStart", "");
+DB_LLINNATE_Skills_Replacers("LLINNATE_SkillReplacer_Lizard", "Cone_Flamebreath", "");
+
+PROC
+LLINNATE_Updater_VersionUpdated((STRING)_OldVersion, "1.0.3.0")
+THEN
+LLINNATE_InitSettings();
+
+PROC
+LLINNATE_Updater_VersionUpdated((STRING)_OldVersion, "1.0.3.0")
+AND
+DB_IsPlayer(_Player)
+AND
+GetVarString(_Player, "LLINNATE_NewOriginSkill", "Storm_LLINNATE_DeathStorm")
+AND
+GetVarString(_Player, "LLINNATE_NewRacialSkill", "Shout_FleshSacrifice")
+THEN
+SetVarString(_Player, "LLINNATE_NewRacialSkill", "Shout_LLINNATE_FleshSacrifice_Necromancer");
+CharacterRemoveSkill(_Player, "Shout_FleshSacrifice");
+CharacterAddSkill(_Player, "Shout_LLINNATE_FleshSacrifice_Necromancer");
+//END_REGION
+
+//REGION EDITOR
+PROC
+LLINNATE_Updater_VersionUpdated((STRING)_OldVersion, "1.0.3.0")
+AND
+DB_Origins((CHARACTERGUID)S_Player_LLINNATE_Humans_Necromancer_Male_9eee8d13-3f86-4f09-baae-b70f88d1a89a)
+THEN
+NOT DB_Origins(S_Player_LLINNATE_Humans_Necromancer_Male_9eee8d13-3f86-4f09-baae-b70f88d1a89a);
+NOT DB_Origins_OriginTag(S_Player_LLINNATE_Humans_Necromancer_Male_9eee8d13-3f86-4f09-baae-b70f88d1a89a, "GENERIC");
+NOT DB_OriginNPCAlignment(S_Player_LLINNATE_Humans_Necromancer_Male_9eee8d13-3f86-4f09-baae-b70f88d1a89a, "Generic_Companions_1");
+//END_REGION
+
 //REGION TALENT_ADDING_PROCS
+/*
 PROC
 LLINNATE_MakePlayer((CHARACTERGUID)_Player)
 AND
@@ -13,6 +70,7 @@ CharacterGetHostCharacter(_Player)
 THEN
 ObjectSetFlag(_Player, "LLINNATE_RevertToNPC");
 CharacterMakePlayer(_Player);
+*/
 
 PROC
 LLINNATE_AddInnateTalents((CHARACTERGUID)_Player)
@@ -70,6 +128,7 @@ CharacterIsControlled(_Player, 1)
 THEN
 ShowNotification(_Player, "LLINNATE_InnateTalentsAdded");
 
+/*
 PROC
 LLINNATE_AddInnateTalents((CHARACTERGUID)_Player)
 AND
@@ -77,6 +136,7 @@ ObjectGetFlag(_Player, "LLINNATE_RevertToNPC", 1)
 THEN
 ObjectClearFlag(_Player, "LLINNATE_RevertToNPC");
 CharacterMakeNPC(_Player);
+*/
 //END_REGION
 
 //REGION ADD_TALENTS
@@ -155,31 +215,6 @@ GlobalClearFlag("LLINNATE_RestartInitialization");
 //END_REGION
 
 //REGION SKILL_REPLACERS
-PROC
-LLINNATE_InitSettings()
-THEN
-DB_LLINNATE_Skills_Race("REALLY_DWARF", "Target_PetrifyingTouch");
-DB_LLINNATE_Skills_Race("REALLY_ELF", "Shout_FleshSacrifice");
-DB_LLINNATE_Skills_Race("REALLY_HUMAN", "Shout_InspireStart");
-DB_LLINNATE_Skills_Race("REALLY_LIZARD", "Cone_Flamebreath");
-
-DB_LLINNATE_Skills_Origins("IFAN", "Summon_SoulWolf");
-DB_LLINNATE_Skills_Origins("RED_PRINCE", "Target_DemonicStare");
-DB_LLINNATE_Skills_Origins("SEBILLE", "Shout_BreakTheShackles");
-DB_LLINNATE_Skills_Origins("BEAST", "Target_Squall");
-DB_LLINNATE_Skills_Origins("LOHSE", "Target_MaddeningSong");
-DB_LLINNATE_Skills_Origins("FANE", "Target_TimeWarp");
-DB_LLINNATE_Skills_Origins("GENERIC", "Dome_CircleOfProtection");
-
-//Flag, Racial Skill Replacer, Origin Skill Replacer
-DB_LLINNATE_Skills_Replacers("LLINNATE_SkillReplacer_Necromancer", "Shout_FleshSacrifice", "Storm_LLINNATE_DeathStorm");
-DB_LLINNATE_Skills_Replacers("LLINNATE_SkillReplacer_Elf", "Shout_FleshSacrifice", "");
-
-PROC
-LLINNATE_Updater_VersionUpdated((STRING)_OldVersion, "1.0.1.0")
-THEN
-LLINNATE_InitSettings();
-
 IF
 ObjectFlagSet(_ReplacerFlag, (CHARACTERGUID)_Character, _Instance)
 AND
@@ -220,7 +255,7 @@ AND
 _NewSkill != ""
 THEN
 LLINNATE_RemoveReplacedRacialSkill(_Character);
-CharacterAddSkill(_Character, _NewSkill);
+CharacterAddSkill(_Character, _NewSkill, 1);
 SetVarString(_Character, "LLINNATE_NewRacialSkill", _NewSkill);
 
 PROC
@@ -250,7 +285,7 @@ AND
 _NewSkill != ""
 THEN
 LLINNATE_RemoveReplacedOriginSkill(_Character);
-CharacterAddSkill(_Character, _NewSkill);
+CharacterAddSkill(_Character, _NewSkill, 1);
 SetVarString(_Character, "LLINNATE_NewOriginSkill", _NewSkill);
 
 IF
@@ -268,7 +303,7 @@ DB_LLINNATE_Skills_Race(_Tag, _Skill)
 AND
 IsTagged(_Character, _Tag, 1)
 THEN
-CharacterAddSkill(_Character, _Skill);
+CharacterAddSkill(_Character, _Skill, 1);
 
 PROC
 LLINNATE_RevertReplacedSkills((CHARACTERGUID)_Character)
@@ -277,7 +312,7 @@ DB_LLINNATE_Skills_Origins(_Tag, _Skill)
 AND
 IsTagged(_Character, _Tag, 1)
 THEN
-CharacterAddSkill(_Character, _Skill);
+CharacterAddSkill(_Character, _Skill, 1);
 
 IF
 TextEventSet("llinnate_settings")
@@ -295,15 +330,15 @@ GameStarted(_Level, _)
 AND
 IsGameLevel(_Level, 1)
 AND
-LLINNATE_Updater_QRY_UpdateNeeded("1.0.1.0")
+LLINNATE_Updater_QRY_UpdateNeeded("1.0.3.0")
 THEN
 LLINNATE_Internal_RegisterMod();
 
 PROC
 LLINNATE_Internal_RegisterMod()
 THEN
-LLINNATE_Updater_RemoveOldVersions("1.0.1.0");
-LLINNATE_Updater_SetVersion("1.0.1.0");
+LLINNATE_Updater_RemoveOldVersions("1.0.3.0");
+LLINNATE_Updater_SetVersion("1.0.3.0");
 
 QRY
 LLINNATE_Updater_QRY_UpdateNeeded((STRING)_Version)
@@ -360,6 +395,77 @@ LLINNATE_Updater_VersionUpdated((STRING)_Version, "1.0.0.3")
 THEN
 DB_Mods_ActiveGoal("InnateTalents", "LaughingLeader", "LaughingLeader_InnateTalents");
 DB_LeaderLib_ModApi_RegisterMenu("LaughingLeader.InnateTalents", "[Innate Talents] Settings", "LLINNATE_SettingsMenu", "InnateTalents", "LaughingLeader");
+//END_REGION
+
+//REGION LOST_WALLET
+IF
+GameStarted(_Level, _)
+AND
+IsGameLevel(_Level, 1)
+AND
+NOT DB_GlobalFlag("LLINNATE_SpawnedLostWallet")
+AND
+CharacterGetHostCharacter(_Host)
+AND
+GetPosition(_Host, _x, _y, _z)
+AND
+CreateItemTemplateAtPosition("LLRACE_LostWallet_d3215b98-ddcc-41bd-ad46-e41b14216014", _x, _y, _z, _Wallet)
+AND
+FindValidPosition(_x, _y, _z, 10.0, _Wallet, _tx, _ty, _tz)
+THEN
+GlobalSetFlag("LLINNATE_SpawnedLostWallet");
+TeleportToPosition(_Wallet, _tx, _ty, _tz, "", 0);
+
+IF
+CharacterUsedItemTemplate(_Player, "LLRACE_LostWallet_d3215b98-ddcc-41bd-ad46-e41b14216014", _Wallet)
+AND
+DB_IsPlayer(_Player)
+AND
+QRY_SpeakerIsAvailable(_Player)
+AND
+QRY_SpeakerIsAvailable(_Wallet)
+THEN
+Proc_StartDialog(0, "LLINNATE_LostWallet", _Wallet, _Player);
+
+IF
+DialogEnded("LLINNATE_LostWallet", _Instance)
+AND
+DialogGetInvolvedNPC(_Instance, 1, (ITEMGUID)_Wallet)
+AND
+ObjectGetFlag(_Wallet, "LLINNATE_LostWallet_TookGold", 1)
+THEN
+ItemDestroy(_Wallet);
+
+IF
+ObjectFlagSet("LLINNATE_LostWallet_AllGold", (CHARACTERGUID)_Player, _)
+THEN
+CharacterAddGold(_Player, 2000);
+
+IF
+ObjectFlagSet("LLINNATE_LostWallet_HalfGold", (CHARACTERGUID)_Player, _)
+THEN
+CharacterAddGold(_Player, 1000);
+
+IF
+ObjectFlagSet("LLINNATE_LostWallet_SomeGold", (CHARACTERGUID)_Player, _)
+THEN
+CharacterAddGold(_Player, 250);
+CharacterStatusText(_Player, "<font color='#97FBFF'>Saintly</font>");
+PlayEffect(_Player, "RS3_FX_Skills_Divine_Bless_Impact_01");
+//END_REGION
+
+//REGION COMMANDS
+IF
+ObjectFlagSet("LLINNATE_Commands_AddResurrection", (CHARACTERGUID)_Player, _)
+THEN
+CharacterAddSkill(_Player, "Teleportation_StoryModeFreeResurrect", 1);
+ObjectClearFlag(_Player, "LLINNATE_Commands_AddResurrection", 0);
+
+IF
+ObjectFlagSet("LLINNATE_Commands_RemoveResurrection", (CHARACTERGUID)_Player, _)
+THEN
+CharacterRemoveSkill(_Player, "Teleportation_StoryModeFreeResurrect");
+ObjectClearFlag(_Player, "LLINNATE_Commands_RemoveResurrection", 0);
 //END_REGION
 EXITSECTION
 
