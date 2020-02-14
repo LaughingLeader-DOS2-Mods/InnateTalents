@@ -60,24 +60,18 @@ NOT DB_OriginNPCAlignment(S_Player_LLINNATE_Humans_Necromancer_Male_9eee8d13-3f8
 //END_REGION
 
 //REGION TALENT_ADDING_PROCS
-/*
-PROC
-LLINNATE_MakePlayer((CHARACTERGUID)_Player)
+IF
+SavegameLoaded(_,_,_,_)
 AND
-CharacterIsPlayer(_Player, 0)
-AND
-CharacterGetHostCharacter(_Player)
+GlobalGetFlag("LLINNATE_TalentsInitialized", 0)
 THEN
-ObjectSetFlag(_Player, "LLINNATE_RevertToNPC");
-CharacterMakePlayer(_Player);
-*/
+GlobalSetFlag("LLINNATE_TalentsInitialized");
+LLINNATE_RefundPoints();
 
 PROC
-LLINNATE_AddInnateTalents((CHARACTERGUID)_Player)
+LLINNATE_RefundPoints()
 AND
-CharacterIsSummon(_Player, 0)
-AND
-CharacterIsPartyFollower(_Player, 0)
+DB_IsPlayer(_Player)
 AND
 ObjectGetFlag(_Player, "LLINNATE_RefundedTalentPoints", 0)
 AND
@@ -92,103 +86,234 @@ AND
 IntegerSum(_RefundCombo1, _Refund3, _RefundTalentPoints)
 AND
 _RefundTalentPoints > 0
-AND
-IntegertoString(_RefundTalentPoints, _RefundPointsStr)
-AND
-StringConcatenate("<font color='#00FF00'>Refunded ", _RefundPointsStr, _Str1)
-AND
-StringConcatenate(_Str1, " Talent Points</font>", _Message)
 THEN
+CharacterDisplayTextWithParam(_Player, "LLINNATE_DisplayText_RefundedPoints", _RefundTalentPoints);
 CharacterAddTalentPoint(_Player, _RefundTalentPoints);
-ObjectSetFlag(_Player, "LLINNATE_RefundedTalentPoints");
-ShowNotification(_Player, _Message);
+ObjectSetFlag(_Player, "LLINNATE_RefundedTalentPoints", 0);
 
 PROC
-LLINNATE_AddInnateTalents((CHARACTERGUID)_Player)
+LLINNATE_RefundPoints()
 AND
-ObjectGetFlag(_Player, "LLINNATE_RefundedTalentPoints", 0)
+DB_Origins(_Origin)
+AND
+NOT DB_IsPlayer(_Origin)
+AND
+CharacterIsDead(_Origin, 0)
+AND
+CharacterHasTalent(_Origin, "QuickStep", _Refund1)
+AND
+CharacterHasTalent(_Origin, "ViolentMagic", _Refund2)
+AND
+CharacterHasTalent(_Origin, "AnimalEmpathy", _Refund3)
+AND
+IntegerSum(_Refund1, _Refund2, _RefundCombo1)
+AND
+IntegerSum(_RefundCombo1, _Refund3, _RefundTalentPoints)
+AND
+_RefundTalentPoints > 0
 THEN
-ObjectSetFlag(_Player, "LLINNATE_RefundedTalentPoints");
+DB_LLINNATE_Temp_OriginRefund(_Origin, _RefundTalentPoints);
+
+IF
+DB_LLINNATE_Temp_OriginRefund(_Origin, _RefundTalentPoints)
+AND
+NOT SysIsActive("LLINNATE_TS_RefundOrigins")
+THEN
+SysActivateGoal("LLINNATE_TS_RefundOrigins");
+//END_REGION
+
+//REGION ADD_TALENT
+
+/* [OSITOOLS_ONLY]
+PROC
+LLINNATE_AddTalent((CHARACTERGUID)_Player, (STRING)_Talent)
+AND
+_Talent != "AnimalEmpathy"
+THEN
+NRD_PlayerSetBaseTalent(_Char, _Talent, 1);
+CharacterAddCivilAbilityPoint(_Char, 0);
 
 PROC
-LLINNATE_AddInnateTalents((CHARACTERGUID)_Player)
+LLINNATE_AddTalent((CHARACTERGUID)_Player, "AnimalEmpathy")
+AND
+NRD_IsModLoaded(Kalavinkas_Combat_Enhanced_e844229e-b744-4294-9102-a7362a926f71, 0)
 THEN
-CharacterAddTalent(_Player, "QuickStep");
-CharacterAddTalent(_Player, "ViolentMagic");
+CharacterAddTalent(_Player, "AnimalEmpathy");
+
+// PET_PAL_COMPATIBILITY for
+// Kalavinkas_Combat_Enhanced_e844229e-b744-4294-9102-a7362a926f71
+
+PROC
+LLINNATE_AddTalent((CHARACTERGUID)_Player, "AnimalEmpathy")
+AND
+NRD_IsModLoaded(Kalavinkas_Combat_Enhanced_e844229e-b744-4294-9102-a7362a926f71, 1)
+THEN
+SetTag(_Player, "LLINNATE_PETPAL");
+*/
+
+// [BEGIN_NO_OSITOOLS]
+PROC
+LLINNATE_AddTalent((CHARACTERGUID)_Player, (STRING)_Talent)
+AND
+_Talent != "AnimalEmpathy"
+THEN
+CharacterAddTalent(_Player, _Talent);
+
+PROC
+LLINNATE_AddTalent((CHARACTERGUID)_Player, "AnimalEmpathy")
+AND
+NOT SysStatus("Kalavinka_DivinityUnleashed", _)
+THEN
 CharacterAddTalent(_Player, "AnimalEmpathy");
 
 PROC
-LLINNATE_AddInnateTalents((CHARACTERGUID)_Player)
+LLINNATE_AddTalent((CHARACTERGUID)_Player, "AnimalEmpathy")
 AND
-CharacterIsSummon(_Player, 0)
-AND
-CharacterIsPartyFollower(_Player, 0)
-AND
-CharacterIsControlled(_Player, 1)
+SysStatus("Kalavinka_DivinityUnleashed", _)
 THEN
-ShowNotification(_Player, "LLINNATE_InnateTalentsAdded");
+SetTag(_Player, "LLINNATE_PETPAL");
+// [END_NO_OSITOOLS]
+//END_REGION
+
+//REGION PET_PAL_TAG
+IF
+ObjectWasTagged(_Char, "LLINNATE_PETPAL")
+THEN
+SetTag(_Char, "PETPAL");
+
+IF
+ObjectLostTag((CHARACTERGUID)_Char, "LLINNATE_PETPAL")
+AND
+CharacterHasTalent(_Char, "AnimalEmpathy", 0)
+THEN
+ClearTag(_Char, "PETPAL");
+
+IF
+ObjectLostTag((CHARACTERGUID)_Char, "PETPAL")
+AND
+IsTagged(_Char, "LLINNATE_PETPAL", 1)
+AND
+NOT DB_LLINNATE_PreventTagSpam(_Char, "PETPAL") // In case some mod really doesn't want us to have the tag
+THEN
+DB_LLINNATE_PreventTagSpam(_Char, "PETPAL");
+SetTag(_Char, "PETPAL");
+ProcObjectTimer(_Char, "Timers_LLINNATE_ClearPetPalFailsafe", 1000);
+
+PROC
+ProcObjectTimerFinished(_Char, "Timers_LLINNATE_ClearPetPalFailsafe")
+AND
+DB_LLINNATE_PreventTagSpam(_Char, "PETPAL")
+THEN
+NOT DB_LLINNATE_PreventTagSpam(_Char, "PETPAL");
+//END_REGION
+
+//REGION ADD_TALENTS_NEW
+
+// [BEGIN_NO_OSITOOLS]
+PROC
+LLINNATE_AddTalents((CHARACTERGUID)_Char, 1) // IsPlayer
+AND
+DB_LLINNATE_Talents(_Talent)
+AND
+CharacterHasTalent(_Char, _Talent, 0)
+THEN
+LLINNATE_AddTalent(_Char, _Talent);
+// [END_NO_OSITOOLS]
+
+/* [OSITOOLS_ONLY]
+PROC
+LLINNATE_AddTalents((CHARACTERGUID)_Char, 1) // IsPlayer
+AND
+DB_LLINNATE_Talents(_Talent)
+AND
+CharacterHasTalent(_Char, _Talent, 0)
+THEN
+LLINNATE_AddTalent(_Char, _Talent);
+
+PROC
+LLINNATE_AddTalents((CHARACTERGUID)_Char, 0) // NPC
+AND
+DB_LLINNATE_Talents(_Talent)
+AND
+CharacterHasTalent(_Char, _Talent, 0)
+THEN
+NRD_LuaCall("LLINNATE_AddTalents", (STRING)_Char, _Talent);
+*/
+
+//REGION ADD_TO_ALL
+/* Players/Origins may lose the talent from CC presets. */
+PROC
+LLINNATE_AddTalentsToAll()
+AND
+DB_IsPlayer(_Player)
+THEN
+LLINNATE_AddTalents(_Player, 1);
+
+PROC
+LLINNATE_AddTalentsToAll()
+AND
+DB_Origins(_Origin)
+AND
+NOT DB_IsPlayer(_Origin)
+THEN
+LLINNATE_AddTalents(_Origin, 0);
 
 /*
+For pre-existing saves where an NPC may be missing the talent for some reason.
+Should probably not happen since the Character stat override adds the talent.
+*/
+/* [OSITOOLS_ONLY]
 PROC
-LLINNATE_AddInnateTalents((CHARACTERGUID)_Player)
+LLINNATE_AddTalentsToAll()
 AND
-ObjectGetFlag(_Player, "LLINNATE_RevertToNPC", 1)
+DB_CurrentLevel(_Region)
+AND
+NOT DB_LLINNATE_IteratedLevel(_Region)
 THEN
-ObjectClearFlag(_Player, "LLINNATE_RevertToNPC");
-CharacterMakeNPC(_Player);
+DB_LLINNATE_IteratedLevel(_Region);
+CharacterLaunchOsirisOnlyIterator("LLINNATE_AddTalents");
+
+IF
+StoryEvent((CHARACTERGUID)_Char, "LLINNATE_AddTalents")
+AND
+CharacterIsPlayer(_Char, _IsPlayer)
+THEN
+LLINNATE_AddTalents(_Char, _IsPlayer);
 */
 //END_REGION
 
-//REGION ADD_TALENTS
-IF
-GameStarted(_Region, _)
-AND
-NOT DB_GlobalFlag("LLINNATE_TalentsInitialized")
-AND
-IsGameLevel(_Region, 1)
+//REGION PRESETS
+PROC
+Proc_ApplyPreset((CHARACTERGUID)_Char,(STRING)_Preset)
 THEN
-TimerCancel("LLINNATE_Timers_AddTalents");
-TimerLaunch("LLINNATE_Timers_AddTalents", 1000);
+ProcObjectTimerCancel(_Char, "Timers_LLINNATE_CheckAddTalent");
+ProcObjectTimer(_Char, "Timers_LLINNATE_CheckAddTalent", 500);
 
 IF
-TimerFinished("LLINNATE_Timers_AddTalents")
+StoryEvent((CHARACTERGUID)_Char, "LeaderLib_PresetApplied")
 THEN
-GlobalSetFlag("LLINNATE_TalentsInitialized");
+ProcObjectTimerCancel(_Char, "Timers_LLINNATE_CheckAddTalent");
+ProcObjectTimer(_Char, "Timers_LLINNATE_CheckAddTalent", 500);
 
-IF
-TimerFinished("LLINNATE_Timers_AddTalents")
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char, "Timers_LLINNATE_CheckAddTalent")
 AND
-DB_IsPlayer(_Player)
-AND
-ObjectGetFlag(_Player, "LLINNATE_AddedTalents", 0)
+CharacterIsPlayer(_Char, _IsPlayer)
 THEN
-ObjectSetFlag(_Player, "LLINNATE_AddedTalents");
-LLINNATE_AddInnateTalents(_Player);
+LLINNATE_AddTalents(_Char, _IsPlayer);
 
-IF
-GlobalFlagSet("LLINNATE_Commands_ResetAndAddTalents")
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char, "Timers_LLINNATE_CheckAddTalent")
 AND
-CharacterGetHostCharacter(_Host)
+CharacterHasTalent(_Char, "QuickStep", 1)
+AND
+CharacterHasTalent(_Char, "ViolentMagic", 1)
+AND
+CharacterHasTalent(_Char, "AnimalEmpathy", 1)
+AND
+ObjectGetFlag(_Char, "LLINNATE_AddTalents_FailsafeCheck", 1)
 THEN
-GlobalClearFlag("LLINNATE_Commands_ResetAndAddTalents");
-PartyClearFlag(_Host, "LLINNATE_AddedTalents", 0);
-GlobalSetFlag("LLINNATE_RestartInitialization");
-/*
-IF
-TimerFinished("LLINNATE_Timers_AddTalents")
-AND
-DB_Origins(_Player)
-AND
-ObjectExists(_Player, 1)
-AND
-CharacterIsPlayer(_Player, 0)
-AND
-ObjectGetFlag(_Player, "LLINNATE_AddedTalents", 0)
-THEN
-ObjectSetFlag(_Player, "LLINNATE_AddedTalents");
-LLINNATE_MakePlayer(_Player); // NPCs can't get talents
-LLINNATE_AddInnateTalents(_Player);
-*/
+ObjectClearFlag(_Char, "LLINNATE_AddTalents_FailsafeCheck", 0);
 //END_REGION
 
 //REGION ADD_EVENTS
@@ -202,9 +327,15 @@ AND
 DB_GlobalFlag("LLINNATE_TalentsInitialized")
 AND
 ObjectGetFlag(_Player, "LLINNATE_AddedTalents", 0)
+AND
+CharacterIsSummon(_Player, _a)
+AND
+CharacterIsPartyFollower(_Player, _b)
+AND
+IntegerMax(_a, _b, _IsNotHero)
 THEN
-ObjectSetFlag(_Player, "LLINNATE_AddedTalents");
-LLINNATE_AddInnateTalents(_Player);
+ObjectSetFlag(_Player, "LLINNATE_AddedTalents", 0);
+LLINNATE_AddInnateTalents(_Player, _IsNotHero);
 
 IF
 GlobalFlagSet("LLINNATE_RestartInitialization")
