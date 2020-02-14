@@ -316,33 +316,19 @@ THEN
 ObjectClearFlag(_Char, "LLINNATE_AddTalents_FailsafeCheck", 0);
 //END_REGION
 
-//REGION ADD_EVENTS
-IF
-CharacterJoinedParty(_Player)
-AND
-DB_CurrentLevel(_Region)
-AND
-IsGameLevel(_Region, 1)
-AND
-DB_GlobalFlag("LLINNATE_TalentsInitialized")
-AND
-ObjectGetFlag(_Player, "LLINNATE_AddedTalents", 0)
-AND
-CharacterIsSummon(_Player, _a)
-AND
-CharacterIsPartyFollower(_Player, _b)
-AND
-IntegerMax(_a, _b, _IsNotHero)
-THEN
-ObjectSetFlag(_Player, "LLINNATE_AddedTalents", 0);
-LLINNATE_AddInnateTalents(_Player, _IsNotHero);
-
+//REGION RE_INITIALIZE
 IF
 GlobalFlagSet("LLINNATE_RestartInitialization")
 THEN
-TimerCancel("LLINNATE_Timers_AddTalents");
-TimerLaunch("LLINNATE_Timers_AddTalents", 250);
 GlobalClearFlag("LLINNATE_RestartInitialization");
+
+IF
+GlobalFlagSet("LLINNATE_RestartInitialization")
+AND
+DB_IsPlayer(_Player)
+THEN
+ProcObjectTimerCancel(_Player, "Timers_LLINNATE_CheckAddTalent");
+ProcObjectTimer(_Player, "Timers_LLINNATE_CheckAddTalent", 500);
 //END_REGION
 
 //REGION SKILL_REPLACERS
@@ -461,15 +447,15 @@ GameStarted(_Level, _)
 AND
 IsGameLevel(_Level, 1)
 AND
-LLINNATE_Updater_QRY_UpdateNeeded("1.0.3.0")
+LLINNATE_Updater_QRY_UpdateNeeded("1.1.0.0")
 THEN
 LLINNATE_Internal_RegisterMod();
 
 PROC
 LLINNATE_Internal_RegisterMod()
 THEN
-LLINNATE_Updater_RemoveOldVersions("1.0.3.0");
-LLINNATE_Updater_SetVersion("1.0.3.0");
+LLINNATE_Updater_RemoveOldVersions("1.1.0.0");
+LLINNATE_Updater_SetVersion("1.1.0.0");
 
 QRY
 LLINNATE_Updater_QRY_UpdateNeeded((STRING)_Version)

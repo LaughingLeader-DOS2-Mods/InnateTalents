@@ -6,7 +6,7 @@
         <node id="root">
             <children>
                 <node id="Tag">
-                    <attribute id="Description" value="You are able to speak to animals." type="23" />
+                    <attribute id="Description" value="You are innately able to speak with animals." type="23" />
                     <attribute id="Name" value="LLINNATE_PETPAL" type="23" />
                     <children>
                         <node id="Categories">

@@ -6,4 +6,42 @@
 	<content contentuid="h91a3adcbg43d8g4d85ga819gffe52d51a629">The Pawn permits your character 1 AP worth of free movement per turn.&lt;br /&gt;&lt;font color='#999999'&gt;This is an innate talent, and is automatically inherited.&lt;/font&gt;</content>
 	<content contentuid="h8637e196g238ag46b6gbb85gc2bbbb5e0424">&lt;font color='#666666'&gt;(Innate) Pet Pal&lt;/font&gt;</content>
 	<content contentuid="h42b4c1e3g7c07g400dg8924g2807a024e6bb">Pet Pal enables you to talk to animals.&lt;br /&gt;&lt;font color='#999999'&gt;This is an innate talent, and is automatically inherited.&lt;/font&gt;</content>
+	<content contentuid="ha94d7960g1237g4b05gad8bgbc13b61e1b16" Source="LLINNATE_LostWallet.lsj">*Take everything inside. Everything!*</content>
+	<content contentuid="h713bb668g078dg4544gb45dg29449b2203d3" Source="LLINNATE_LostWallet.lsj">*Take a little bit of gold from the pouch. Whoever this belongs to won&apos;t even notice, right?*</content>
+	<content contentuid="h6a94eaa0g0c0eg4544gb147g6e2c2493a12c" Source="LLINNATE_LostWallet.lsj">*You take half of the gold inside the pouch and toss it aside. Well, it &lt;i&gt;felt &lt;/i&gt;like half anyway.*</content>
+	<content contentuid="h683c63c7g46afg4dabgb965gc9db3c0d54ad" Source="LLINNATE_LostWallet.lsj">*You carefully take a small amount of gold from the pouch, gently placing it back where you found it. You are &lt;i&gt;truly &lt;/i&gt;a saint.*</content>
+	<content contentuid="hdb70f35bga558g42f3g9ce8g37cf7a279013" Source="LLINNATE_LostWallet.lsj">*You find a small pouch on the ground. It looks to be a coin purse...*</content>
+	<content contentuid="h505721b1g34b9g4b78g863fge7b0c8f6914c" Source="LLINNATE_LostWallet.lsj">*You take all available gold from the pouch and discard it as quick as you found it. A hefty amount of gold!*</content>
+	<content contentuid="h4c7d4ef4g98e2g4f1cgb011g06e97d7ba1fc" Source="LLINNATE_LostWallet.lsj">*Step away from the pouch. Clearly this is some kind of test. You&apos;re on to them!*</content>
+	<content contentuid="hb7a24bb9g6faag4775ga4d3g2bd9df013d8a" Source="LLINNATE_LostWallet.lsj">*Take half of whatever is inside. You&apos;re not a &lt;i&gt;monster&lt;/i&gt;, after all.*</content>
+	<content contentuid="h30f33143gd759g491dgb1d3g2ebde37e6486" Source="LLINNATE_Misc.lsb" Key="LLINNATE_InnateTalentsAdded">Innate Talents Added</content>
+	<content contentuid="h8a64b51ege26fg4055g96c7gca348ae475e9" Source="LLINNATE_Misc.lsb" Key="LLINNATE_NOTHING">Nothing (Innate Talent)</content>
+	<content contentuid="h1be1d479ga6b5g4001g878bgc96939578fa5" Source="LLINNATE_Misc.lsb" Key="LLINNATE_PETPAL">&lt;font color=&apos;#666666&apos;&gt;(Innate)&lt;/font&gt; Animal Dialect</content>
+	<content contentuid="h77805d3dgc3c5g4a85gb087g545ed577fd4c" Source="LLINNATE_Misc.lsb" Key="tagkey_LLINNATE_PETPAL">You are innately able to speak with animals.</content>
+	<content contentuid="h98d5b9acg6797g4988gb0e7gc9227f7c36a2" Source="LLINNATE_SettingsMenu.lsj">Replace Racial Skill with [Flesh Sacrifice] (Elf)</content>
+	<content contentuid="h1d345bf4gf5e0g4b06ga167gabda2940c303" Source="LLINNATE_SettingsMenu.lsj">Misc Commands</content>
+	<content contentuid="h35cca570g5ae8g48bega5cag5654804cd747" Source="LLINNATE_SettingsMenu.lsj">[DEBUG] Add innate talents to all player characters.</content>
+	<content contentuid="h94f238e0gd7c6g46c4ga0f3g11c4ca404631" Source="LLINNATE_SettingsMenu.lsj">[Back]</content>
+	<content contentuid="h55b27a11g7d21g4e64gafd8gaaba4fbf7c5b" Source="LLINNATE_SettingsMenu.lsj">Remove [Resurrection] Skill from Party</content>
+	<content contentuid="h897f2e1fgbff7g4d80gaac5g048ad1fc035e" Source="LLINNATE_SettingsMenu.lsj">Apply the [Necromancer] Replacer - Your racial skill is replaced with Flesh Sacrifice, and your Origin skill is replaced with [Death Storm].</content>
+	<content contentuid="h265419c5gd501g440cg9660geb3291122948" Source="LLINNATE_SettingsMenu.lsj">Running command...</content>
+	<content contentuid="hac87bc8agdc10g4683g9c10gbf8d84e71cc7" Source="LLINNATE_SettingsMenu.lsj">Replace Racial Skill with [Petrifying Touch] (Dwarf)</content>
+	<content contentuid="h4520a780g8966g4c76gb590gf5472f0ee1db" Source="LLINNATE_SettingsMenu.lsj">Remove [Resurrection] Skill from Current Character</content>
+	<content contentuid="h25e87738ga5f3g4864g8b01gb291dd36e9df" Source="LLINNATE_SettingsMenu.lsj">Replace Racial Skill with [Encourage] (Human)</content>
+	<content contentuid="h8445b5c2ge034g45b9g9425ga0a06fa679b4" Source="LLINNATE_SettingsMenu.lsj">Add [Resurrection] Skill to Party</content>
+	<content contentuid="hb4759116g2d64g4ce7g8657gec1e7a613cf5" Source="LLINNATE_SettingsMenu.lsj">Revert All Replacers</content>
+	<content contentuid="hda736757g6db1g4684g8998g3f09ad09dcac" Source="LLINNATE_SettingsMenu.lsj">Replace Racial Skill with [Flame Breath] (Lizard)</content>
+	<content contentuid="hfbfaf03eg5b83g4c09ga895g65ecdd7841d7" Source="LLINNATE_SettingsMenu.lsj">Applying replacer...</content>
+	<content contentuid="he8d444d8g0857g4899g9340ga9930a1b4bf8" Source="LLINNATE_SettingsMenu.lsj">Racial &amp; Origin Skill Replacers</content>
+	<content contentuid="h083b5a2ega999g450cgb64ag01ccc739e3ac" Source="LLINNATE_SettingsMenu.lsj">Add [Resurrection] Skill to Current Character</content>
+	<content contentuid="h916f22fdg4f2fg412cg8700g4829f19bbd67" Source="LLINNATE_SettingsMenu.lsj">Apply the [Time Warp] Replacer - Your Origin skill is replaced with [Time Warp].</content>
+	<content contentuid="hf72edd22g48d9g4ccfgafefg8d5eb134f278" Source="LLINNATE_SettingsMenu.lsj">Replace Racial &amp; Origin Skills</content>
+	<content contentuid="heb267092gd2d8g4b3bg9009ge24a7c6cd383" Source="LLINNATE_SettingsMenu.lsj">Innate Talents Settings</content>
+	<content contentuid="hf302cb92g0175g4ee4gb317g0146e149c8db" Source="LLINNATE_SettingsMenu.lsj">[Exit]</content>
+	<content contentuid="hc9642cdegad69g42bbg8e68g631e92ae5d85" Source="LLINNATE_Skills.lsb" Key="Shout_LLINNATE_Camouflage_Description">Blend in with your environment, becoming Invisible for 1 turn.</content>
+	<content contentuid="h5e1cc6b7g699cg4665g8790g895d38fd2675" Source="LLINNATE_Skills.lsb" Key="Shout_LLINNATE_Camouflage_DisplayName">Camouflage</content>
+	<content contentuid="h815650degb89dg42b2ga750g6b4d647a371e" Source="LLINNATE_Skills.lsb" Key="Storm_LLINNATE_Blood_Description">Unleash a violent storm of disease and death. Bolts of coagulated blood fall on enemy characters in the area, each dealing [1] and setting Disease and Decaying.&lt;br&gt;&lt;font color=&apos;#DC143C&apos;&gt;Water in the area is turned into blood.&lt;/font&gt;</content>
+	<content contentuid="hea8e312bgac91g44a7gb96bg2b9a493e87f0" Source="LLINNATE_Skills.lsb" Key="Storm_LLINNATE_Blood_DisplayName">Death Storm</content>
+	<content contentuid="h98d1534dgf626g4417gab0agd54702689762" Source="LLRACE_LostWallet">Somebody must have dropped this...</content>
+	<content contentuid="h4f71f090g344cg473bgb3adg77fa85272bac" Source="LLRACE_LostWallet">Forgotten Pouch</content>
 </contentList>
