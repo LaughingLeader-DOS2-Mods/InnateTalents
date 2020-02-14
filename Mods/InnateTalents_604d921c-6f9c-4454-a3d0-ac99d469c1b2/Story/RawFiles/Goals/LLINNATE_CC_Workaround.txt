@@ -2,9 +2,117 @@ Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
 
-DB_LLINNATE_Talents("QuickStep");
-DB_LLINNATE_Talents("ViolentMagic");
-DB_LLINNATE_Talents("AnimalEmpathy");
+DB_LLINNATE_InnateTalents("QuickStep");
+DB_LLINNATE_InnateTalents("ViolentMagic");
+DB_LLINNATE_InnateTalents("AnimalEmpathy");
+
+/*
+DB_LLINNATE_AllTalents("ActionPoints");
+DB_LLINNATE_AllTalents("ActionPoints2");
+DB_LLINNATE_AllTalents("AirSpells");
+//DB_LLINNATE_AllTalents("AnimalEmpathy");
+DB_LLINNATE_AllTalents("AttackOfOpportunity");
+DB_LLINNATE_AllTalents("AvoidDetection");
+DB_LLINNATE_AllTalents("Awareness");
+DB_LLINNATE_AllTalents("Backstab");
+DB_LLINNATE_AllTalents("Beastmaster");
+DB_LLINNATE_AllTalents("Bully");
+DB_LLINNATE_AllTalents("Carry");
+DB_LLINNATE_AllTalents("ChanceToHitMelee");
+DB_LLINNATE_AllTalents("ChanceToHitRanged");
+DB_LLINNATE_AllTalents("Charm");
+DB_LLINNATE_AllTalents("Courageous");
+DB_LLINNATE_AllTalents("Criticals");
+DB_LLINNATE_AllTalents("Damage");
+DB_LLINNATE_AllTalents("Demon");
+DB_LLINNATE_AllTalents("DualWieldingDodging");
+DB_LLINNATE_AllTalents("Durability");
+//DB_LLINNATE_AllTalents("Dwarf_Sneaki");
+//DB_LLINNATE_AllTalents("Dwarf_Strength");
+DB_LLINNATE_AllTalents("EarthSpells");
+DB_LLINNATE_AllTalents("ElementalAffinity");
+DB_LLINNATE_AllTalents("ElementalRanger");
+//DB_LLINNATE_AllTalents("Elf_CorpseEating");
+//DB_LLINNATE_AllTalents("Elf_Finesse");
+DB_LLINNATE_AllTalents("Escapist");
+DB_LLINNATE_AllTalents("Executioner");
+DB_LLINNATE_AllTalents("ExpGain");
+DB_LLINNATE_AllTalents("ExtraSkillPoints");
+DB_LLINNATE_AllTalents("ExtraStatPoints");
+DB_LLINNATE_AllTalents("ExtraWandCharge");
+DB_LLINNATE_AllTalents("FaroutDude");
+DB_LLINNATE_AllTalents("FireSpells");
+DB_LLINNATE_AllTalents("FiveStarRestaurant");
+DB_LLINNATE_AllTalents("Flanking");
+DB_LLINNATE_AllTalents("FolkDancer");
+DB_LLINNATE_AllTalents("GoldenMage");
+//DB_LLINNATE_AllTalents("Human_Civil");
+//DB_LLINNATE_AllTalents("Human_Wits");
+DB_LLINNATE_AllTalents("IceKing");
+DB_LLINNATE_AllTalents("IncreasedArmor");
+DB_LLINNATE_AllTalents("Initiative");
+DB_LLINNATE_AllTalents("Intimidate");
+DB_LLINNATE_AllTalents("InventoryAccess	Dress Rehearsal	decreases the amount of action points it takes to equip different items during combat.");
+DB_LLINNATE_AllTalents("ItemCreation");
+DB_LLINNATE_AllTalents("ItemMovement");
+DB_LLINNATE_AllTalents("Kickstarter");
+DB_LLINNATE_AllTalents("Kinetics");
+DB_LLINNATE_AllTalents("Leech");
+DB_LLINNATE_AllTalents("LightStep");
+DB_LLINNATE_AllTalents("LightningRod");
+//DB_LLINNATE_AllTalents("Lizard_Intelligence");
+//DB_LLINNATE_AllTalents("Lizard_Persuasion");
+DB_LLINNATE_AllTalents("Lockpick");
+DB_LLINNATE_AllTalents("LoneWolf");
+DB_LLINNATE_AllTalents("Luck");
+DB_LLINNATE_AllTalents("Memory");
+DB_LLINNATE_AllTalents("MrKnowItAll");
+DB_LLINNATE_AllTalents("NoAttackOfOpportunity");
+DB_LLINNATE_AllTalents("Perfectionist");
+DB_LLINNATE_AllTalents("Politician");
+DB_LLINNATE_AllTalents("Quest_GhostTree");
+DB_LLINNATE_AllTalents("Quest_SpidersKiss_Int");
+DB_LLINNATE_AllTalents("Quest_SpidersKiss_Null");
+DB_LLINNATE_AllTalents("Quest_SpidersKiss_Per");
+DB_LLINNATE_AllTalents("Quest_SpidersKiss_Str");
+DB_LLINNATE_AllTalents("Quest_TradeSecrets");
+//DB_LLINNATE_AllTalents("QuickStep");
+DB_LLINNATE_AllTalents("Raistlin");
+DB_LLINNATE_AllTalents("RangerLoreArrowRecover");
+DB_LLINNATE_AllTalents("RangerLoreEvasionBonus");
+DB_LLINNATE_AllTalents("RangerLoreRangedAPBonus");
+DB_LLINNATE_AllTalents("Reason");
+DB_LLINNATE_AllTalents("Repair");
+DB_LLINNATE_AllTalents("ResistDead");
+DB_LLINNATE_AllTalents("ResistFear");
+DB_LLINNATE_AllTalents("ResistKnockdown");
+DB_LLINNATE_AllTalents("ResistPoison");
+DB_LLINNATE_AllTalents("ResistSilence");
+DB_LLINNATE_AllTalents("ResistStun");
+DB_LLINNATE_AllTalents("ResurrectToFullHealth");
+DB_LLINNATE_AllTalents("RogueLoreDaggerAPBonus");
+DB_LLINNATE_AllTalents("RogueLoreDaggerBackStab");
+DB_LLINNATE_AllTalents("RogueLoreGrenadePrecision");
+DB_LLINNATE_AllTalents("RogueLoreHoldResistance");
+DB_LLINNATE_AllTalents("RogueLoreMovementBonus");
+DB_LLINNATE_AllTalents("Scientist");
+DB_LLINNATE_AllTalents("Sight");
+DB_LLINNATE_AllTalents("SpillNoBlood");
+DB_LLINNATE_AllTalents("StandYourGround");
+DB_LLINNATE_AllTalents("Stench");
+DB_LLINNATE_AllTalents("SurpriseAttack");
+DB_LLINNATE_AllTalents("Trade");
+//DB_LLINNATE_AllTalents("ViolentMagic");
+DB_LLINNATE_AllTalents("Vitality");
+DB_LLINNATE_AllTalents("WalkItOff");
+DB_LLINNATE_AllTalents("WarriorLoreGrenadeRange");
+DB_LLINNATE_AllTalents("WarriorLoreN");
+DB_LLINNATE_AllTalents("WarriorLoreNaturalHealth");
+DB_LLINNATE_AllTalents("WarriorLoreNaturalResistance");
+DB_LLINNATE_AllTalents("WaterSpells");
+DB_LLINNATE_AllTalents("WeatherProof");
+DB_LLINNATE_AllTalents("WhatARush");
+*/
 
 KBSECTION
 
@@ -23,7 +131,17 @@ RegionEnded(_Region)
 AND
 IsCharacterCreationLevel(_Region, 1)
 THEN
-GoalCompleted;
+DB_LLINNATE_CC_RefundNext(1);
+
+IF
+RegionStarted(_Region)
+AND
+IsGameLevel(_Region, 1)
+AND
+DB_LLINNATE_CC_RefundNext(1)
+THEN
+NOT DB_LLINNATE_CC_RefundNext(1);
+LLINNATE_RefundPoints();
 
 IF
 RegionStarted(_Region)
@@ -31,22 +149,6 @@ AND
 IsGameLevel(_Region, 1)
 THEN
 GoalCompleted;
-
-// -------------------------
-// Remove innate talents in CC
-// Presets will set talents when cycled through.
-// Players in the party aren't the actual characters selected in CC.
-// -------------------------
-IF
-SkillAdded(_CCDummy, _Skill, 0)
-AND
-DB_LLINNATE_Talents(_Talent)
-AND
-CharacterHasTalent(_CCDummy, _Talent, 1)
-THEN
-CharacterRemoveTalent(_CCDummy, _Talent);
-CharacterAddTalent(_CCDummy, "Perfectionist");
 EXITSECTION
-
 ENDEXITSECTION
 ParentTargetEdge "__Start"
