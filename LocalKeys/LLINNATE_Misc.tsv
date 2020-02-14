@@ -1,6 +1,6 @@
 Key	Content
 LLINNATE_InnateTalentsAdded	Innate Talents Added
-LLINNATE_NOTHING	Nothing (Innate Talent)
+LLINNATE_NOTHING	Nothing
 LLINNATE_PETPAL	<font color='#666666'>(Innate)</font> Animal Dialect
 tagkey_LLINNATE_PETPAL	You are innately able to speak with animals.
 LLINNATE_DisplayText_RefundedPoints <font color='#00FF00'>Refunded [1] Talent Points</font>

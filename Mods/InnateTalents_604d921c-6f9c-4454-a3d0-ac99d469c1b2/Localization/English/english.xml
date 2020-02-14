@@ -15,7 +15,7 @@
 	<content contentuid="h4c7d4ef4g98e2g4f1cgb011g06e97d7ba1fc" Source="LLINNATE_LostWallet.lsj">*Step away from the pouch. Clearly this is some kind of test. You&apos;re on to them!*</content>
 	<content contentuid="hb7a24bb9g6faag4775ga4d3g2bd9df013d8a" Source="LLINNATE_LostWallet.lsj">*Take half of whatever is inside. You&apos;re not a &lt;i&gt;monster&lt;/i&gt;, after all.*</content>
 	<content contentuid="h30f33143gd759g491dgb1d3g2ebde37e6486" Source="LLINNATE_Misc.lsb" Key="LLINNATE_InnateTalentsAdded">Innate Talents Added</content>
-	<content contentuid="h8a64b51ege26fg4055g96c7gca348ae475e9" Source="LLINNATE_Misc.lsb" Key="LLINNATE_NOTHING">Nothing (Innate Talent)</content>
+	<content contentuid="h8a64b51ege26fg4055g96c7gca348ae475e9" Source="LLINNATE_Misc.lsb" Key="LLINNATE_NOTHING">Nothing</content>
 	<content contentuid="h1be1d479ga6b5g4001g878bgc96939578fa5" Source="LLINNATE_Misc.lsb" Key="LLINNATE_PETPAL">&lt;font color=&apos;#666666&apos;&gt;(Innate)&lt;/font&gt; Animal Dialect</content>
 	<content contentuid="h77805d3dgc3c5g4a85gb087g545ed577fd4c" Source="LLINNATE_Misc.lsb" Key="tagkey_LLINNATE_PETPAL">You are innately able to speak with animals.</content>
 	<content contentuid="h98d5b9acg6797g4988gb0e7gc9227f7c36a2" Source="LLINNATE_SettingsMenu.lsj">Replace Racial Skill with [Flesh Sacrifice] (Elf)</content>
