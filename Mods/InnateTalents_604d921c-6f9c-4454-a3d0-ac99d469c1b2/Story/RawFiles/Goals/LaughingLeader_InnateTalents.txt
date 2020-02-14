@@ -3,7 +3,6 @@ SubGoalCombiner SGC_AND
 INITSECTION
 LLINNATE_InitSettings();
 KBSECTION
-
 //REGION SETTINGS
 PROC
 LLINNATE_InitSettings()
@@ -130,8 +129,8 @@ LLINNATE_AddTalent((CHARACTERGUID)_Player, (STRING)_Talent)
 AND
 _Talent != "AnimalEmpathy"
 THEN
-NRD_PlayerSetBaseTalent(_Char, _Talent, 1);
-CharacterAddCivilAbilityPoint(_Char, 0);
+NRD_PlayerSetBaseTalent(_Player, _Talent, 1);
+CharacterAddCivilAbilityPoint(_Player, 0);
 
 PROC
 LLINNATE_AddTalent((CHARACTERGUID)_Player, "AnimalEmpathy")
@@ -200,7 +199,7 @@ SetTag(_Char, "PETPAL");
 ProcObjectTimer(_Char, "Timers_LLINNATE_ClearPetPalFailsafe", 1000);
 
 PROC
-ProcObjectTimerFinished(_Char, "Timers_LLINNATE_ClearPetPalFailsafe")
+ProcObjectTimerFinished((CHARACTERGUID)_Char, "Timers_LLINNATE_ClearPetPalFailsafe")
 AND
 DB_LLINNATE_PreventTagSpam(_Char, "PETPAL")
 THEN
@@ -213,7 +212,7 @@ NOT DB_LLINNATE_PreventTagSpam(_Char, "PETPAL");
 PROC
 LLINNATE_AddTalents((CHARACTERGUID)_Char, 1) // IsPlayer
 AND
-DB_LLINNATE_Talents(_Talent)
+DB_LLINNATE_InnateTalents(_Talent)
 AND
 CharacterHasTalent(_Char, _Talent, 0)
 THEN
@@ -224,7 +223,7 @@ LLINNATE_AddTalent(_Char, _Talent);
 PROC
 LLINNATE_AddTalents((CHARACTERGUID)_Char, 1) // IsPlayer
 AND
-DB_LLINNATE_Talents(_Talent)
+DB_LLINNATE_InnateTalents(_Talent)
 AND
 CharacterHasTalent(_Char, _Talent, 0)
 THEN
@@ -233,11 +232,11 @@ LLINNATE_AddTalent(_Char, _Talent);
 PROC
 LLINNATE_AddTalents((CHARACTERGUID)_Char, 0) // NPC
 AND
-DB_LLINNATE_Talents(_Talent)
+DB_LLINNATE_InnateTalents(_Talent)
 AND
 CharacterHasTalent(_Char, _Talent, 0)
 THEN
-NRD_LuaCall("LLINNATE_AddTalents", (STRING)_Char, _Talent);
+NRD_LuaCall("LLINNATE_Ext_AddTalent", (STRING)_Char, _Talent);
 */
 
 //REGION ADD_TO_ALL
