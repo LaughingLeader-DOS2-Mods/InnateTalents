@@ -1,0 +1,52 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+DB_LLINNATE_Talents("QuickStep");
+DB_LLINNATE_Talents("ViolentMagic");
+DB_LLINNATE_Talents("AnimalEmpathy");
+
+KBSECTION
+
+// We add the same innate talents!
+IF
+RegionStarted(_Region)
+AND
+IsCharacterCreationLevel(_Region, 1)
+AND
+SysStatus("KCE_CharacterCreation", _)
+THEN
+SysCompleteGoal("KCE_CharacterCreation");
+
+IF
+RegionEnded(_Region)
+AND
+IsCharacterCreationLevel(_Region, 1)
+THEN
+GoalCompleted;
+
+IF
+RegionStarted(_Region)
+AND
+IsGameLevel(_Region, 1)
+THEN
+GoalCompleted;
+
+// -------------------------
+// Remove innate talents in CC
+// Presets will set talents when cycled through.
+// Players in the party aren't the actual characters selected in CC.
+// -------------------------
+IF
+SkillAdded(_CCDummy, _Skill, 0)
+AND
+DB_LLINNATE_Talents(_Talent)
+AND
+CharacterHasTalent(_CCDummy, _Talent, 1)
+THEN
+CharacterRemoveTalent(_CCDummy, _Talent);
+CharacterAddTalent(_CCDummy, "Perfectionist");
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "__Start"
