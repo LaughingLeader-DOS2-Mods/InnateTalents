@@ -1,4 +1,5 @@
-requirement "QuickStep",""
-
+requirement "QuickStep","Tag LLINNATE_NOTHING"
+requirement "ViolentMagic","Tag LLINNATE_NOTHING"
+requirement "AnimalEmpathy","Tag LLINNATE_NOTHING"
 requirement "Executioner","WarriorLore 1"
 
