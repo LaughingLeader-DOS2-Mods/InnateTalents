@@ -42,6 +42,8 @@
 	<content contentuid="h5e1cc6b7g699cg4665g8790g895d38fd2675" Source="LLINNATE_Skills.lsb" Key="Shout_LLINNATE_Camouflage_DisplayName">Camouflage</content>
 	<content contentuid="h815650degb89dg42b2ga750g6b4d647a371e" Source="LLINNATE_Skills.lsb" Key="Storm_LLINNATE_Blood_Description">Unleash a violent storm of disease and death. Bolts of coagulated blood fall on enemy characters in the area, each dealing [1] and setting Disease and Decaying.&lt;br&gt;&lt;font color=&apos;#DC143C&apos;&gt;Water in the area is turned into blood.&lt;/font&gt;</content>
 	<content contentuid="hea8e312bgac91g44a7gb96bg2b9a493e87f0" Source="LLINNATE_Skills.lsb" Key="Storm_LLINNATE_Blood_DisplayName">Death Storm</content>
+	<content contentuid="h2ea80abdg7e51g42b4g8fb1g85a2a1a7ec14" Source="LLINNATE_Statuses.lsb" Key="LLINNATE_TALENTS_Description">Character has innate talents active.</content>
+	<content contentuid="h013cb447g3f63g4f27ga613g5a0a6780088b" Source="LLINNATE_Statuses.lsb" Key="LLINNATE_TALENTS_DisplayName">Innate Talents</content>
 	<content contentuid="h98d1534dgf626g4417gab0agd54702689762" Source="LLRACE_LostWallet">Somebody must have dropped this...</content>
 	<content contentuid="h4f71f090g344cg473bgb3adg77fa85272bac" Source="LLRACE_LostWallet">Forgotten Pouch</content>
 </contentList>
