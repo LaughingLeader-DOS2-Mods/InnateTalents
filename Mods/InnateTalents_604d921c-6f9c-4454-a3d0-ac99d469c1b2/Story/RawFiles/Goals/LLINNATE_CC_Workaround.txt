@@ -6,7 +6,6 @@ DB_LLINNATE_InnateTalents("QuickStep");
 DB_LLINNATE_InnateTalents("ViolentMagic");
 DB_LLINNATE_InnateTalents("AnimalEmpathy");
 
-/*
 DB_LLINNATE_AllTalents("ActionPoints");
 DB_LLINNATE_AllTalents("ActionPoints2");
 DB_LLINNATE_AllTalents("AirSpells");
@@ -70,12 +69,12 @@ DB_LLINNATE_AllTalents("MrKnowItAll");
 DB_LLINNATE_AllTalents("NoAttackOfOpportunity");
 DB_LLINNATE_AllTalents("Perfectionist");
 DB_LLINNATE_AllTalents("Politician");
-DB_LLINNATE_AllTalents("Quest_GhostTree");
-DB_LLINNATE_AllTalents("Quest_SpidersKiss_Int");
-DB_LLINNATE_AllTalents("Quest_SpidersKiss_Null");
-DB_LLINNATE_AllTalents("Quest_SpidersKiss_Per");
-DB_LLINNATE_AllTalents("Quest_SpidersKiss_Str");
-DB_LLINNATE_AllTalents("Quest_TradeSecrets");
+//DB_LLINNATE_AllTalents("Quest_GhostTree");
+//DB_LLINNATE_AllTalents("Quest_SpidersKiss_Int");
+//DB_LLINNATE_AllTalents("Quest_SpidersKiss_Null");
+//DB_LLINNATE_AllTalents("Quest_SpidersKiss_Per");
+//DB_LLINNATE_AllTalents("Quest_SpidersKiss_Str");
+//DB_LLINNATE_AllTalents("Quest_TradeSecrets");
 //DB_LLINNATE_AllTalents("QuickStep");
 DB_LLINNATE_AllTalents("Raistlin");
 DB_LLINNATE_AllTalents("RangerLoreArrowRecover");
@@ -112,7 +111,6 @@ DB_LLINNATE_AllTalents("WarriorLoreNaturalResistance");
 DB_LLINNATE_AllTalents("WaterSpells");
 DB_LLINNATE_AllTalents("WeatherProof");
 DB_LLINNATE_AllTalents("WhatARush");
-*/
 
 KBSECTION
 

@@ -58,7 +58,16 @@ NOT DB_Origins_OriginTag(S_Player_LLINNATE_Humans_Necromancer_Male_9eee8d13-3f86
 NOT DB_OriginNPCAlignment(S_Player_LLINNATE_Humans_Necromancer_Male_9eee8d13-3f86-4f09-baae-b70f88d1a89a, "Generic_Companions_1");
 //END_REGION
 
-//REGION TALENT_ADDING_PROCS
+QRY
+LLINNATE_QRY_HasNonInnateTalents((CHARACTERGUID)_Char)
+AND
+DB_LLINNATE_AllTalents(_Talent)
+AND
+CharacterHasTalent(_Char, _Talent, 1)
+THEN
+DB_NOOP(1);
+
+//REGION REFUND
 IF
 SavegameLoaded(_,_,_,_)
 AND
@@ -90,12 +99,15 @@ CharacterDisplayTextWithParam(_Player, "LLINNATE_DisplayText_RefundedPoints", _R
 CharacterAddTalentPoint(_Player, _RefundTalentPoints);
 ObjectSetFlag(_Player, "LLINNATE_RefundedTalentPoints", 0);
 
+/*
 PROC
 LLINNATE_RefundPoints()
 AND
 DB_Origins(_Origin)
 AND
 NOT DB_IsPlayer(_Origin)
+AND
+ObjectGetFlag(_Origin, "LLINNATE_RefundedTalentPoints", 0)
 AND
 CharacterIsDead(_Origin, 0)
 AND
@@ -119,6 +131,7 @@ AND
 NOT SysIsActive("LLINNATE_TS_RefundOrigins")
 THEN
 SysActivateGoal("LLINNATE_TS_RefundOrigins");
+*/
 //END_REGION
 
 //REGION ADD_TALENT
@@ -238,7 +251,7 @@ CharacterHasTalent(_Char, _Talent, 0)
 THEN
 NRD_LuaCall("LLINNATE_Ext_AddTalent", (STRING)_Char, _Talent);
 */
-
+//END_REGION
 //REGION ADD_TO_ALL
 /* Players/Origins may lose the talent from CC presets. */
 PROC
@@ -281,7 +294,19 @@ LLINNATE_AddTalents(_Char, _IsPlayer);
 */
 //END_REGION
 
-//REGION PRESETS
+//REGION PRESET_APPLIED
+PROC
+Proc_ApplyPreset((CHARACTERGUID)_Origin,(STRING)_Preset)
+AND
+ObjectGetFlag(_Origin, "LLINNATE_RefundedTalentPoints", 0)
+AND
+DB_Origins(_Origin)
+AND
+NOT LLINNATE_QRY_HasNonInnateTalents(_Origin)
+THEN
+CharacterAddTalentPoint(_Origin, 1);
+ObjectSetFlag(_Origin, "LLINNATE_RefundedTalentPoints", 0);
+
 PROC
 Proc_ApplyPreset((CHARACTERGUID)_Char,(STRING)_Preset)
 THEN
