@@ -295,17 +295,22 @@ LLINNATE_AddTalents(_Char, _IsPlayer);
 //END_REGION
 
 //REGION PRESET_APPLIED
-PROC
-Proc_ApplyPreset((CHARACTERGUID)_Origin,(STRING)_Preset)
-AND
-ObjectGetFlag(_Origin, "LLINNATE_RefundedTalentPoints", 0)
+//PROC
+//Proc_ApplyPreset((CHARACTERGUID)_Origin,(STRING)_Preset)
+IF
+CharacterJoinedParty(_Origin)
 AND
 DB_Origins(_Origin)
 AND
+ObjectGetFlag(_Origin, "LLINNATE_RefundedTalentPoints", 0)
+AND
+NOT DB_IsPlayer(_Origin)
+AND
 NOT LLINNATE_QRY_HasNonInnateTalents(_Origin)
 THEN
-CharacterAddTalentPoint(_Origin, 1);
 ObjectSetFlag(_Origin, "LLINNATE_RefundedTalentPoints", 0);
+CharacterAddTalentPoint(_Origin, 1);
+CharacterDisplayTextWithParam(_Origin, "LLINNATE_DisplayText_RefundedPoints", 1);
 
 PROC
 Proc_ApplyPreset((CHARACTERGUID)_Char,(STRING)_Preset)
