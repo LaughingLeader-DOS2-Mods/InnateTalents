@@ -1,6 +1,6 @@
 Ext.Require("Shared.lua")
 
-function LLINNATE_Ext_AddTalent(character, talent)
+function AddTalent(character, talent)
 	if CharacterHasTalent(character, talent) ~= 1 then
 		if Ext.Version() >= 40 then
 			Osi.NRD_CharacterSetPermanentBoostTalent(character, talent, 1)
@@ -11,6 +11,10 @@ function LLINNATE_Ext_AddTalent(character, talent)
 	end
 end
 
-function LLINNATE_Ext_TraceStats(character)
-	Ext.Print("Character("..character..") stats: ("..tostring(Ext.GetCharacter(character).Stats.Name)..") root template stats ("..GetStatString(character)..")")
+function SendRegionToClients(region)
+	Ext.BroadcastMessage("LLINNATE_SetCurrentLevel", region, nil)
 end
+
+Ext.RegisterNetListener("LLINNATE_AddTalentPoint", function(call, uuid)
+	CharacterAddTalentPoint(uuid, 1)
+end)

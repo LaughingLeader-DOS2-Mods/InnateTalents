@@ -36,12 +36,13 @@ local TALENT_ENUM = {
 	[98] = "QuickStep",
 }
 
+local CURRENT_LEVEL = ""
+
 local function IsInRacialArray(ui, id)
 	local i = 0
 	while i < 150 do
 		local check = ui:GetValue("racialTalentArray","number", i)
 		if check ~= nil and math.tointeger(check) == id then
-			print(id, "is in racial talent array")
 			return true
 		end
 		i = i + 2
@@ -66,22 +67,32 @@ local function AddToRacialArray(ui, id, text)
 	end
 end
 
+Ext.RegisterNetListener("LLINNATE_SetCurrentLevel", function(call, level)
+	CURRENT_LEVEL = level
+end)
+
 Ext.RegisterListener("SessionLoaded", function()
 	if not Ext.IsModLoaded(DIVINITY_UNLEASHED) and not Ext.IsModLoaded(DIVINITY_CONFLUX) then
 		---@param ui UIObject
 		---@param call string
 		Ext.RegisterUINameInvokeListener("updateTalents", function(ui, call, ...)
-			local i = 1
-			while i < 150 do
-				local id = ui:GetValue("talentArray","number", i) or nil
-				local name = ui:GetValue("talentArray", "string", i+1)
-				local state = ui:GetValue("talentArray", "boolean", i+2)
-				local choosable = ui:GetValue("talentArray", "boolean", i+3)
-				--local isRacial = ui:GetValue("talentArray", "boolean", i+4) -- Always nil in the regular talentArray
-				
-				if id ~= nil then
-					if TALENT_ENUM[id] ~= nil then
-						AddToRacialArray(ui, id, name)
+			local canLockTalents = CURRENT_LEVEL ~= "" and CURRENT_LEVEL ~= "SYS_Character_Creation_A"
+			if canLockTalents then
+				local availablePoints = ui:GetValue("talentArray","number", 0)
+				local i = 1
+				local swappedTalents = false
+				while i < 150 do
+					local id = ui:GetValue("talentArray","number", i) or nil
+					local name = ui:GetValue("talentArray", "string", i+1)
+					local state = ui:GetValue("talentArray", "boolean", i+2)
+					local choosable = ui:GetValue("talentArray", "boolean", i+3)
+					--local isRacial = ui:GetValue("talentArray", "boolean", i+4) -- Always nil in the regular talentArray
+					
+					if id ~= nil and TALENT_ENUM[id] ~= nil then
+						if state and availablePoints == 0 then
+							--ui:SetValue("talentArray", 1, 0)
+							--swappedTalents = true
+						end
 						AddToRacialArray(ui, id, name)
 						-- Disabling this talent in the original array
 						ui:SetValue("talentArray", 999, i)
@@ -89,8 +100,8 @@ Ext.RegisterListener("SessionLoaded", function()
 						ui:SetValue("talentArray", false, i+2)
 						ui:SetValue("talentArray", false, i+3)
 					end
+					i = i + 4
 				end
-				i = i + 4
 			end
 		end)
 	end
