@@ -144,7 +144,7 @@ NOT DB_LLINNATE_PreventTagSpam(_Char, "PETPAL");
 //REGION ADD_TALENTS_NEW
 
 PROC
-LLINNATE_AddTalents((CHARACTERGUID)_Char, 1) // IsPlayer
+LLINNATE_AddAllTalents((CHARACTERGUID)_Char, 1) // IsPlayer
 AND
 DB_LLINNATE_InnateTalents(_Talent)
 AND
@@ -154,7 +154,7 @@ LLINNATE_AddTalent(_Char, _Talent);
 
 // [BEGIN_NO_OSITOOLS]
 PROC
-LLINNATE_AddTalents((CHARACTERGUID)_Char, 1) // IsPlayer
+LLINNATE_AddAllTalents((CHARACTERGUID)_Char, 1) // IsPlayer
 AND
 DB_LLINNATE_InnateTalents(_Talent)
 AND
@@ -165,7 +165,7 @@ LLINNATE_AddTalent(_Char, _Talent);
 
 /* [OSITOOLS_ONLY]
 PROC
-LLINNATE_AddTalents((CHARACTERGUID)_Char, 1) // IsPlayer
+LLINNATE_AddAllTalents((CHARACTERGUID)_Char, 1) // IsPlayer
 AND
 DB_LLINNATE_InnateTalents(_Talent)
 AND
@@ -174,17 +174,17 @@ THEN
 LLINNATE_AddTalent(_Char, _Talent);
 
 PROC
-LLINNATE_AddTalents((CHARACTERGUID)_Char, 0) // NPC
+LLINNATE_AddAllTalents((CHARACTERGUID)_Char, 0) // NPC
 AND
 DB_LLINNATE_InnateTalents(_Talent)
 AND
 CharacterHasTalent(_Char, _Talent, 0)
 THEN
-NRD_LuaCall("LLINNATE_Ext_AddTalent", (STRING)_Char, _Talent);
+NRD_ModCall("LaughingLeader_InnateTalents", "AddTalent", (STRING)_Char, _Talent);
 */
 //END_REGION
 
-//REGION PRESET_APPLIED
+//REGION CHECK_TALENTS_EVENTS
 /* [OSITOOLS_ONLY]
 QRY
 LLINNATE_QRY_CanRefundPoints()
@@ -212,6 +212,10 @@ CharacterJoinedParty(_Origin)
 AND
 DB_Origins(_Origin)
 AND
+NOT CharacterGetHostCharacter(_Origin)
+AND
+CharacterIsControlled(_Origin, 0)
+AND
 ObjectGetFlag(_Origin, "LLINNATE_RefundedTalentPoints", 0)
 AND
 LLINNATE_QRY_CanRefundPoints()
@@ -237,7 +241,7 @@ ProcObjectTimerFinished((CHARACTERGUID)_Char, "Timers_LLINNATE_CheckAddTalent")
 AND
 CharacterIsPlayer(_Char, _IsPlayer)
 THEN
-LLINNATE_AddTalents(_Char, _IsPlayer);
+LLINNATE_AddAllTalents(_Char, _IsPlayer);
 
 PROC
 ProcObjectTimerFinished((CHARACTERGUID)_Char, "Timers_LLINNATE_CheckAddTalent")
@@ -445,12 +449,6 @@ DB_LLINNATE_RegisteredLeaderLibSettings(1)
 THEN
 DB_LeaderLib_ModApi_RegisterMenu("LaughingLeader.InnateTalents", "[Innate Talents] Settings", "LLINNATE_SettingsMenu", "InnateTalents", "LaughingLeader");
 DB_LeaderLib_ModApi_RegisterActiveGoal("InnateTalents", "LaughingLeader", "LaughingLeader_InnateTalents");
-
-PROC
-LLINNATE_Updater_VersionUpdated((STRING)_Version, "1.0.0.3")
-THEN
-DB_Mods_ActiveGoal("InnateTalents", "LaughingLeader", "LaughingLeader_InnateTalents");
-DB_LeaderLib_ModApi_RegisterMenu("LaughingLeader.InnateTalents", "[Innate Talents] Settings", "LLINNATE_SettingsMenu", "InnateTalents", "LaughingLeader");
 //END_REGION
 
 //REGION LOST_WALLET
@@ -522,6 +520,22 @@ ObjectFlagSet("LLINNATE_Commands_RemoveResurrection", (CHARACTERGUID)_Player, _)
 THEN
 CharacterRemoveSkill(_Player, "Teleportation_StoryModeFreeResurrect");
 ObjectClearFlag(_Player, "LLINNATE_Commands_RemoveResurrection", 0);
+//END_REGION
+
+//REGION LUA_CURRENT_LEVEL
+/* [OSITOOLS_ONLY]
+IF
+GameStarted(_Region, _)
+THEN
+NRD_ModCall("LaughingLeader_InnateTalents", "SendRegionToClients", _Region);
+
+IF
+UserConnected(_User, _, _)
+AND
+DB_CurrentLevel(_Region)
+THEN
+NRD_ModCall("LaughingLeader_InnateTalents", "SendRegionToClients", _Region);
+*/
 //END_REGION
 EXITSECTION
 

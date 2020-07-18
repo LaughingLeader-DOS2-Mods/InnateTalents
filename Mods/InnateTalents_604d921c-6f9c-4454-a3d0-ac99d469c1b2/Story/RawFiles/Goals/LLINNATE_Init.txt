@@ -1,21 +1,30 @@
 Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
-LLINNATE_Init_CheckRefund();
+LLINNATE_Init_CheckRefund_Start();
 KBSECTION
 
-//REGION REFUND
 PROC
-LLINNATE_Init_CheckRefund()
+LLINNATE_Init_CheckRefund_Start()
 AND
 DB_IsPlayer(_Player)
+THEN
+SetStoryEvent(_Player, "LLINNATE_Init_CheckRefund");
+
+IF
+StoryEvent((CHARACTERGUID)_Player, "LLINNATE_Init_CheckRefund")
 AND
 ObjectGetFlag(_Player, "LLINNATE_RefundedTalentPoints", 0)
 AND
 LLINNATE_QRY_CanRefundPoints()
 THEN
 LLINNATE_RefundPoints(_Player);
-//END_REGION
+
+IF
+StoryEvent((CHARACTERGUID)_Player, "LLINNATE_Init_CheckRefund")
+THEN
+ProcObjectTimerCancel(_Player, "Timers_LLINNATE_CheckAddTalent");
+ProcObjectTimer(_Player, "Timers_LLINNATE_CheckAddTalent", 500);
 
 EXITSECTION
 ENDEXITSECTION

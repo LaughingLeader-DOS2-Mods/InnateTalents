@@ -4,11 +4,35 @@ INITSECTION
 
 KBSECTION
 IF
+RegionEnded(_Region)
+AND
+IsCharacterCreationLevel(_Region, 1)
+THEN
+DB_LLINNATE_CC_CheckTalents(1);
+
+IF
+RegionStarted(_Region)
+AND
+IsGameLevel(_Region, 1)
+AND
+DB_LLINNATE_CC_CheckTalents(1)
+AND
+DB_IsPlayer(_Player)
+AND
+DB_LLINNATE_InnateTalents(_Talent)
+AND
+CharacterHasTalent(_Player, _Talent, 1)
+THEN
+CharacterAddTalentPoint(_Player, 1);
+ObjectSetFlag(_Player, "LLINNATE_RefundedTalentPoints", 0);
+
+IF
 RegionStarted(_Region)
 AND
 IsGameLevel(_Region, 1)
 THEN
 GoalCompleted;
 EXITSECTION
+SysClear("DB_LLINNATE_CC_CheckTalents", 1);
 ENDEXITSECTION
 ParentTargetEdge "__Start"
