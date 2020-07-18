@@ -34,167 +34,11 @@ THEN
 DB_LLINNATE_InnateTalents("QuickStep");
 DB_LLINNATE_InnateTalents("ViolentMagic");
 DB_LLINNATE_InnateTalents("AnimalEmpathy");
-
-DB_LLINNATE_AllTalents("ItemMovement");
-DB_LLINNATE_AllTalents("ItemCreation");
-DB_LLINNATE_AllTalents("Flanking");
-DB_LLINNATE_AllTalents("AttackOfOpportunity");
-DB_LLINNATE_AllTalents("Backstab");
-DB_LLINNATE_AllTalents("Trade");
-DB_LLINNATE_AllTalents("Lockpick");
-DB_LLINNATE_AllTalents("ChanceToHitRanged");
-DB_LLINNATE_AllTalents("ChanceToHitMelee");
-DB_LLINNATE_AllTalents("Damage");
-DB_LLINNATE_AllTalents("ActionPoints");
-DB_LLINNATE_AllTalents("ActionPoints2");
-DB_LLINNATE_AllTalents("Criticals");
-DB_LLINNATE_AllTalents("IncreasedArmor");
-DB_LLINNATE_AllTalents("Sight");
-DB_LLINNATE_AllTalents("ResistFear");
-DB_LLINNATE_AllTalents("ResistKnockdown");
-DB_LLINNATE_AllTalents("ResistStun");
-DB_LLINNATE_AllTalents("ResistPoison");
-DB_LLINNATE_AllTalents("ResistSilence");
-DB_LLINNATE_AllTalents("ResistDead");
-DB_LLINNATE_AllTalents("Carry");
-DB_LLINNATE_AllTalents("Throwing");
-DB_LLINNATE_AllTalents("Repair");
-DB_LLINNATE_AllTalents("ExpGain");
-DB_LLINNATE_AllTalents("ExtraStatPoints");
-DB_LLINNATE_AllTalents("ExtraSkillPoints");
-DB_LLINNATE_AllTalents("Durability");
-DB_LLINNATE_AllTalents("Awareness");
-DB_LLINNATE_AllTalents("Vitality");
-DB_LLINNATE_AllTalents("FireSpells");
-DB_LLINNATE_AllTalents("WaterSpells");
-DB_LLINNATE_AllTalents("AirSpells");
-DB_LLINNATE_AllTalents("EarthSpells");
-DB_LLINNATE_AllTalents("Charm");
-DB_LLINNATE_AllTalents("Intimidate");
-DB_LLINNATE_AllTalents("Reason");
-DB_LLINNATE_AllTalents("Luck");
-DB_LLINNATE_AllTalents("Initiative");
-DB_LLINNATE_AllTalents("InventoryAccess");
-DB_LLINNATE_AllTalents("AvoidDetection");
-//DB_LLINNATE_AllTalents("AnimalEmpathy");
-DB_LLINNATE_AllTalents("Escapist");
-DB_LLINNATE_AllTalents("StandYourGround");
-DB_LLINNATE_AllTalents("SurpriseAttack");
-DB_LLINNATE_AllTalents("LightStep");
-DB_LLINNATE_AllTalents("ResurrectToFullHealth");
-DB_LLINNATE_AllTalents("Scientist");
-DB_LLINNATE_AllTalents("Raistlin");
-DB_LLINNATE_AllTalents("MrKnowItAll");
-DB_LLINNATE_AllTalents("WhatARush");
-DB_LLINNATE_AllTalents("FaroutDude");
-DB_LLINNATE_AllTalents("Leech");
-DB_LLINNATE_AllTalents("ElementalAffinity");
-DB_LLINNATE_AllTalents("FiveStarRestaurant");
-DB_LLINNATE_AllTalents("Bully");
-DB_LLINNATE_AllTalents("ElementalRanger");
-DB_LLINNATE_AllTalents("LightningRod");
-DB_LLINNATE_AllTalents("Politician");
-DB_LLINNATE_AllTalents("WeatherProof");
-DB_LLINNATE_AllTalents("LoneWolf");
-DB_LLINNATE_AllTalents("Demon");
-DB_LLINNATE_AllTalents("IceKing");
-DB_LLINNATE_AllTalents("Courageous");
-DB_LLINNATE_AllTalents("GoldenMage");
-DB_LLINNATE_AllTalents("WalkItOff");
-DB_LLINNATE_AllTalents("FolkDancer");
-DB_LLINNATE_AllTalents("SpillNoBlood");
-DB_LLINNATE_AllTalents("Stench");
-DB_LLINNATE_AllTalents("Kickstarter");
-DB_LLINNATE_AllTalents("WarriorLoreNaturalArmor");
-DB_LLINNATE_AllTalents("WarriorLoreNaturalHealth");
-DB_LLINNATE_AllTalents("WarriorLoreNaturalResistance");
-DB_LLINNATE_AllTalents("RangerLoreArrowRecover");
-DB_LLINNATE_AllTalents("RangerLoreEvasionBonus");
-DB_LLINNATE_AllTalents("RangerLoreRangedAPBonus");
-DB_LLINNATE_AllTalents("RogueLoreDaggerAPBonus");
-DB_LLINNATE_AllTalents("RogueLoreDaggerBackStab");
-DB_LLINNATE_AllTalents("RogueLoreMovementBonus");
-DB_LLINNATE_AllTalents("RogueLoreHoldResistance");
-DB_LLINNATE_AllTalents("NoAttackOfOpportunity");
-DB_LLINNATE_AllTalents("WarriorLoreGrenadeRange");
-DB_LLINNATE_AllTalents("RogueLoreGrenadePrecision");
-DB_LLINNATE_AllTalents("WandCharge");
-DB_LLINNATE_AllTalents("DualWieldingDodging");
-DB_LLINNATE_AllTalents("Perfectionist");
-DB_LLINNATE_AllTalents("Executioner");
-//DB_LLINNATE_AllTalents("ViolentMagic");
-//DB_LLINNATE_AllTalents("QuickStep");
-DB_LLINNATE_AllTalents("Memory");
-DB_LLINNATE_AllTalents("BeastMaster");
-DB_LLINNATE_AllTalents("LivingArmor");
-DB_LLINNATE_AllTalents("Torturer");
-DB_LLINNATE_AllTalents("Ambidextrous");
-DB_LLINNATE_AllTalents("Unstable");
-DB_LLINNATE_AllTalents("ResurrectExtraHealth");
-DB_LLINNATE_AllTalents("NaturalConductor");
-DB_LLINNATE_AllTalents("Quest_Rooted");
-DB_LLINNATE_AllTalents("PainDrinker");
-DB_LLINNATE_AllTalents("DeathfogResistant");
-DB_LLINNATE_AllTalents("Sourcerer");
-DB_LLINNATE_AllTalents("Rager");
-DB_LLINNATE_AllTalents("Elementalist");
-DB_LLINNATE_AllTalents("Sadist");
-DB_LLINNATE_AllTalents("Haymaker");
-DB_LLINNATE_AllTalents("Gladiator");
-DB_LLINNATE_AllTalents("Indomitable");
-DB_LLINNATE_AllTalents("WildMag");
-DB_LLINNATE_AllTalents("Jitterbug");
-DB_LLINNATE_AllTalents("Soulcatcher");
-DB_LLINNATE_AllTalents("MasterThief");
-DB_LLINNATE_AllTalents("GreedyVessel");
-DB_LLINNATE_AllTalents("MagicCycles");
-
-PROC
-LLINNATE_Updater_VersionUpdated((STRING)_OldVersion, "1.0.3.0")
-THEN
-LLINNATE_InitSettings();
-
-PROC
-LLINNATE_Updater_VersionUpdated((STRING)_OldVersion, "1.0.3.0")
-AND
-DB_IsPlayer(_Player)
-AND
-GetVarString(_Player, "LLINNATE_NewOriginSkill", "Storm_LLINNATE_DeathStorm")
-AND
-GetVarString(_Player, "LLINNATE_NewRacialSkill", "Shout_FleshSacrifice")
-THEN
-SetVarString(_Player, "LLINNATE_NewRacialSkill", "Shout_LLINNATE_FleshSacrifice_Necromancer");
-CharacterRemoveSkill(_Player, "Shout_FleshSacrifice");
-CharacterAddSkill(_Player, "Shout_LLINNATE_FleshSacrifice_Necromancer");
 //END_REGION
-
-//REGION EDITOR
-PROC
-LLINNATE_Updater_VersionUpdated((STRING)_OldVersion, "1.0.3.0")
-AND
-DB_Origins((CHARACTERGUID)S_Player_LLINNATE_Humans_Necromancer_Male_9eee8d13-3f86-4f09-baae-b70f88d1a89a)
-THEN
-NOT DB_Origins(S_Player_LLINNATE_Humans_Necromancer_Male_9eee8d13-3f86-4f09-baae-b70f88d1a89a);
-NOT DB_Origins_OriginTag(S_Player_LLINNATE_Humans_Necromancer_Male_9eee8d13-3f86-4f09-baae-b70f88d1a89a, "GENERIC");
-NOT DB_OriginNPCAlignment(S_Player_LLINNATE_Humans_Necromancer_Male_9eee8d13-3f86-4f09-baae-b70f88d1a89a, "Generic_Companions_1");
-//END_REGION
-
-QRY
-LLINNATE_QRY_HasNonInnateTalents((CHARACTERGUID)_Char)
-AND
-DB_LLINNATE_AllTalents(_Talent)
-AND
-CharacterHasTalent(_Char, _Talent, 1)
-THEN
-DB_NOOP(1);
 
 //REGION REFUND
 PROC
-LLINNATE_RefundPoints()
-AND
-DB_IsPlayer(_Player)
-AND
-ObjectGetFlag(_Player, "LLINNATE_RefundedTalentPoints", 0)
+LLINNATE_RefundPoints((CHARACTERGUID)_Player)
 AND
 CharacterHasTalent(_Player, "QuickStep", _Refund1)
 AND
@@ -211,44 +55,9 @@ THEN
 CharacterDisplayTextWithParam(_Player, "LLINNATE_DisplayText_RefundedPoints", _RefundTalentPoints);
 CharacterAddTalentPoint(_Player, _RefundTalentPoints);
 ObjectSetFlag(_Player, "LLINNATE_RefundedTalentPoints", 0);
-
-/*
-PROC
-LLINNATE_RefundPoints()
-AND
-DB_Origins(_Origin)
-AND
-NOT DB_IsPlayer(_Origin)
-AND
-ObjectGetFlag(_Origin, "LLINNATE_RefundedTalentPoints", 0)
-AND
-CharacterIsDead(_Origin, 0)
-AND
-CharacterHasTalent(_Origin, "QuickStep", _Refund1)
-AND
-CharacterHasTalent(_Origin, "ViolentMagic", _Refund2)
-AND
-CharacterHasTalent(_Origin, "AnimalEmpathy", _Refund3)
-AND
-IntegerSum(_Refund1, _Refund2, _RefundCombo1)
-AND
-IntegerSum(_RefundCombo1, _Refund3, _RefundTalentPoints)
-AND
-_RefundTalentPoints > 0
-THEN
-DB_LLINNATE_Temp_OriginRefund(_Origin, _RefundTalentPoints);
-
-IF
-DB_LLINNATE_Temp_OriginRefund(_Origin, _RefundTalentPoints)
-AND
-NOT SysIsActive("LLINNATE_TS_RefundOrigins")
-THEN
-SysActivateGoal("LLINNATE_TS_RefundOrigins");
-*/
 //END_REGION
 
 //REGION ADD_TALENT
-
 /* [OSITOOLS_ONLY]
 PROC
 LLINNATE_AddTalent((CHARACTERGUID)_Player, (STRING)_Talent)
@@ -334,6 +143,15 @@ NOT DB_LLINNATE_PreventTagSpam(_Char, "PETPAL");
 
 //REGION ADD_TALENTS_NEW
 
+PROC
+LLINNATE_AddTalents((CHARACTERGUID)_Char, 1) // IsPlayer
+AND
+DB_LLINNATE_InnateTalents(_Talent)
+AND
+CharacterHasTalent(_Char, _Talent, 1)
+THEN
+LLINNATE_AddTalent(_Char, _Talent);
+
 // [BEGIN_NO_OSITOOLS]
 PROC
 LLINNATE_AddTalents((CHARACTERGUID)_Char, 1) // IsPlayer
@@ -365,51 +183,30 @@ THEN
 NRD_LuaCall("LLINNATE_Ext_AddTalent", (STRING)_Char, _Talent);
 */
 //END_REGION
-//REGION ADD_TO_ALL
-/* Players/Origins may lose the talent from CC presets. */
-PROC
-LLINNATE_AddTalentsToAll()
-AND
-DB_IsPlayer(_Player)
-THEN
-LLINNATE_AddTalents(_Player, 1);
-
-PROC
-LLINNATE_AddTalentsToAll()
-AND
-DB_Origins(_Origin)
-AND
-NOT DB_IsPlayer(_Origin)
-THEN
-LLINNATE_AddTalents(_Origin, 0);
-
-/*
-For pre-existing saves where an NPC may be missing the talent for some reason.
-Should probably not happen since the Character stat override adds the talent.
-*/
-/* [OSITOOLS_ONLY]
-PROC
-LLINNATE_AddTalentsToAll()
-AND
-DB_CurrentLevel(_Region)
-AND
-NOT DB_LLINNATE_IteratedLevel(_Region)
-THEN
-DB_LLINNATE_IteratedLevel(_Region);
-CharacterLaunchOsirisOnlyIterator("LLINNATE_AddTalents");
-
-IF
-StoryEvent((CHARACTERGUID)_Char, "LLINNATE_AddTalents")
-AND
-CharacterIsPlayer(_Char, _IsPlayer)
-THEN
-LLINNATE_AddTalents(_Char, _IsPlayer);
-*/
-//END_REGION
 
 //REGION PRESET_APPLIED
-//PROC
-//Proc_ApplyPreset((CHARACTERGUID)_Origin,(STRING)_Preset)
+/* [OSITOOLS_ONLY]
+QRY
+LLINNATE_QRY_CanRefundPoints()
+AND
+NRD_IsModLoaded(e844229e-b744-4294-9102-a7362a926f71, 0) // Divinity Unleashed
+AND
+NRD_IsModLoaded(723ad06b-0241-4a2e-a9f3-4d2b419e0fe3, 0) // Divinity Conflux
+THEN
+DB_NOOP(1);
+*/
+
+// [BEGIN_NO_OSITOOLS]
+QRY
+LLINNATE_QRY_CanRefundPoints()
+AND
+NOT SysStatus("KCE_CoreRules_Story", _)
+AND
+NOT SysStatus("Enemy_Xorn_Blade_Dervish", _)
+THEN
+DB_NOOP(1);
+// [END_NO_OSITOOLS]
+
 IF
 CharacterJoinedParty(_Origin)
 AND
@@ -417,13 +214,11 @@ DB_Origins(_Origin)
 AND
 ObjectGetFlag(_Origin, "LLINNATE_RefundedTalentPoints", 0)
 AND
-NOT DB_IsPlayer(_Origin)
-AND
-NOT LLINNATE_QRY_HasNonInnateTalents(_Origin)
+LLINNATE_QRY_CanRefundPoints()
 THEN
-ObjectSetFlag(_Origin, "LLINNATE_RefundedTalentPoints", 0);
-CharacterAddTalentPoint(_Origin, 1);
-CharacterDisplayTextWithParam(_Origin, "LLINNATE_DisplayText_RefundedPoints", 1);
+LLINNATE_RefundPoints(_Origin);
+ProcObjectTimerCancel(_Origin, "Timers_LLINNATE_CheckAddTalent");
+ProcObjectTimer(_Origin, "Timers_LLINNATE_CheckAddTalent", 500);
 
 PROC
 Proc_ApplyPreset((CHARACTERGUID)_Char,(STRING)_Preset)
