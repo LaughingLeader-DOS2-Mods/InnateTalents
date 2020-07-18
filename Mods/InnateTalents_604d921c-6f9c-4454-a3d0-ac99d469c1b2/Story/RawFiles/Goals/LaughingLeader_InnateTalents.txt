@@ -29,6 +29,127 @@ DB_LLINNATE_Skills_Replacers("LLINNATE_SkillReplacer_Human", "Shout_InspireStart
 DB_LLINNATE_Skills_Replacers("LLINNATE_SkillReplacer_Lizard", "Cone_Flamebreath", "");
 
 PROC
+LLINNATE_InitSettings()
+THEN
+DB_LLINNATE_InnateTalents("QuickStep");
+DB_LLINNATE_InnateTalents("ViolentMagic");
+DB_LLINNATE_InnateTalents("AnimalEmpathy");
+
+DB_LLINNATE_AllTalents("ItemMovement");
+DB_LLINNATE_AllTalents("ItemCreation");
+DB_LLINNATE_AllTalents("Flanking");
+DB_LLINNATE_AllTalents("AttackOfOpportunity");
+DB_LLINNATE_AllTalents("Backstab");
+DB_LLINNATE_AllTalents("Trade");
+DB_LLINNATE_AllTalents("Lockpick");
+DB_LLINNATE_AllTalents("ChanceToHitRanged");
+DB_LLINNATE_AllTalents("ChanceToHitMelee");
+DB_LLINNATE_AllTalents("Damage");
+DB_LLINNATE_AllTalents("ActionPoints");
+DB_LLINNATE_AllTalents("ActionPoints2");
+DB_LLINNATE_AllTalents("Criticals");
+DB_LLINNATE_AllTalents("IncreasedArmor");
+DB_LLINNATE_AllTalents("Sight");
+DB_LLINNATE_AllTalents("ResistFear");
+DB_LLINNATE_AllTalents("ResistKnockdown");
+DB_LLINNATE_AllTalents("ResistStun");
+DB_LLINNATE_AllTalents("ResistPoison");
+DB_LLINNATE_AllTalents("ResistSilence");
+DB_LLINNATE_AllTalents("ResistDead");
+DB_LLINNATE_AllTalents("Carry");
+DB_LLINNATE_AllTalents("Throwing");
+DB_LLINNATE_AllTalents("Repair");
+DB_LLINNATE_AllTalents("ExpGain");
+DB_LLINNATE_AllTalents("ExtraStatPoints");
+DB_LLINNATE_AllTalents("ExtraSkillPoints");
+DB_LLINNATE_AllTalents("Durability");
+DB_LLINNATE_AllTalents("Awareness");
+DB_LLINNATE_AllTalents("Vitality");
+DB_LLINNATE_AllTalents("FireSpells");
+DB_LLINNATE_AllTalents("WaterSpells");
+DB_LLINNATE_AllTalents("AirSpells");
+DB_LLINNATE_AllTalents("EarthSpells");
+DB_LLINNATE_AllTalents("Charm");
+DB_LLINNATE_AllTalents("Intimidate");
+DB_LLINNATE_AllTalents("Reason");
+DB_LLINNATE_AllTalents("Luck");
+DB_LLINNATE_AllTalents("Initiative");
+DB_LLINNATE_AllTalents("InventoryAccess");
+DB_LLINNATE_AllTalents("AvoidDetection");
+//DB_LLINNATE_AllTalents("AnimalEmpathy");
+DB_LLINNATE_AllTalents("Escapist");
+DB_LLINNATE_AllTalents("StandYourGround");
+DB_LLINNATE_AllTalents("SurpriseAttack");
+DB_LLINNATE_AllTalents("LightStep");
+DB_LLINNATE_AllTalents("ResurrectToFullHealth");
+DB_LLINNATE_AllTalents("Scientist");
+DB_LLINNATE_AllTalents("Raistlin");
+DB_LLINNATE_AllTalents("MrKnowItAll");
+DB_LLINNATE_AllTalents("WhatARush");
+DB_LLINNATE_AllTalents("FaroutDude");
+DB_LLINNATE_AllTalents("Leech");
+DB_LLINNATE_AllTalents("ElementalAffinity");
+DB_LLINNATE_AllTalents("FiveStarRestaurant");
+DB_LLINNATE_AllTalents("Bully");
+DB_LLINNATE_AllTalents("ElementalRanger");
+DB_LLINNATE_AllTalents("LightningRod");
+DB_LLINNATE_AllTalents("Politician");
+DB_LLINNATE_AllTalents("WeatherProof");
+DB_LLINNATE_AllTalents("LoneWolf");
+DB_LLINNATE_AllTalents("Demon");
+DB_LLINNATE_AllTalents("IceKing");
+DB_LLINNATE_AllTalents("Courageous");
+DB_LLINNATE_AllTalents("GoldenMage");
+DB_LLINNATE_AllTalents("WalkItOff");
+DB_LLINNATE_AllTalents("FolkDancer");
+DB_LLINNATE_AllTalents("SpillNoBlood");
+DB_LLINNATE_AllTalents("Stench");
+DB_LLINNATE_AllTalents("Kickstarter");
+DB_LLINNATE_AllTalents("WarriorLoreNaturalArmor");
+DB_LLINNATE_AllTalents("WarriorLoreNaturalHealth");
+DB_LLINNATE_AllTalents("WarriorLoreNaturalResistance");
+DB_LLINNATE_AllTalents("RangerLoreArrowRecover");
+DB_LLINNATE_AllTalents("RangerLoreEvasionBonus");
+DB_LLINNATE_AllTalents("RangerLoreRangedAPBonus");
+DB_LLINNATE_AllTalents("RogueLoreDaggerAPBonus");
+DB_LLINNATE_AllTalents("RogueLoreDaggerBackStab");
+DB_LLINNATE_AllTalents("RogueLoreMovementBonus");
+DB_LLINNATE_AllTalents("RogueLoreHoldResistance");
+DB_LLINNATE_AllTalents("NoAttackOfOpportunity");
+DB_LLINNATE_AllTalents("WarriorLoreGrenadeRange");
+DB_LLINNATE_AllTalents("RogueLoreGrenadePrecision");
+DB_LLINNATE_AllTalents("WandCharge");
+DB_LLINNATE_AllTalents("DualWieldingDodging");
+DB_LLINNATE_AllTalents("Perfectionist");
+DB_LLINNATE_AllTalents("Executioner");
+//DB_LLINNATE_AllTalents("ViolentMagic");
+//DB_LLINNATE_AllTalents("QuickStep");
+DB_LLINNATE_AllTalents("Memory");
+DB_LLINNATE_AllTalents("BeastMaster");
+DB_LLINNATE_AllTalents("LivingArmor");
+DB_LLINNATE_AllTalents("Torturer");
+DB_LLINNATE_AllTalents("Ambidextrous");
+DB_LLINNATE_AllTalents("Unstable");
+DB_LLINNATE_AllTalents("ResurrectExtraHealth");
+DB_LLINNATE_AllTalents("NaturalConductor");
+DB_LLINNATE_AllTalents("Quest_Rooted");
+DB_LLINNATE_AllTalents("PainDrinker");
+DB_LLINNATE_AllTalents("DeathfogResistant");
+DB_LLINNATE_AllTalents("Sourcerer");
+DB_LLINNATE_AllTalents("Rager");
+DB_LLINNATE_AllTalents("Elementalist");
+DB_LLINNATE_AllTalents("Sadist");
+DB_LLINNATE_AllTalents("Haymaker");
+DB_LLINNATE_AllTalents("Gladiator");
+DB_LLINNATE_AllTalents("Indomitable");
+DB_LLINNATE_AllTalents("WildMag");
+DB_LLINNATE_AllTalents("Jitterbug");
+DB_LLINNATE_AllTalents("Soulcatcher");
+DB_LLINNATE_AllTalents("MasterThief");
+DB_LLINNATE_AllTalents("GreedyVessel");
+DB_LLINNATE_AllTalents("MagicCycles");
+
+PROC
 LLINNATE_Updater_VersionUpdated((STRING)_OldVersion, "1.0.3.0")
 THEN
 LLINNATE_InitSettings();
@@ -68,14 +189,6 @@ THEN
 DB_NOOP(1);
 
 //REGION REFUND
-IF
-SavegameLoaded(_,_,_,_)
-AND
-GlobalGetFlag("LLINNATE_TalentsInitialized", 0)
-THEN
-GlobalSetFlag("LLINNATE_TalentsInitialized");
-LLINNATE_RefundPoints();
-
 PROC
 LLINNATE_RefundPoints()
 AND
@@ -154,7 +267,7 @@ CharacterAddTalent(_Player, "AnimalEmpathy");
 
 // PET_PAL_COMPATIBILITY for
 // Kalavinkas_Combat_Enhanced_e844229e-b744-4294-9102-a7362a926f71
-
+// Divinity Unleashed
 PROC
 LLINNATE_AddTalent((CHARACTERGUID)_Player, "AnimalEmpathy")
 AND
@@ -471,20 +584,21 @@ Proc_StartDialog(0, "LLINNATE_SettingsMenu", _Host, _Host);
 //END_REGION
 
 //REGION VERSIONING
+// [BEGIN_NO_OSITOOLS]
 IF
 GameStarted(_Level, _)
 AND
 IsGameLevel(_Level, 1)
 AND
-LLINNATE_Updater_QRY_UpdateNeeded("1.1.0.0")
+LLINNATE_Updater_QRY_UpdateNeeded("1.2.0.0")
 THEN
 LLINNATE_Internal_RegisterMod();
 
 PROC
 LLINNATE_Internal_RegisterMod()
 THEN
-LLINNATE_Updater_RemoveOldVersions("1.1.0.0");
-LLINNATE_Updater_SetVersion("1.1.0.0");
+LLINNATE_Updater_RemoveOldVersions("1.2.0.0");
+LLINNATE_Updater_SetVersion("1.2.0.0");
 
 QRY
 LLINNATE_Updater_QRY_UpdateNeeded((STRING)_Version)
@@ -520,6 +634,7 @@ AND
 NOT GlobalGetFlag("LeaderLib_Initialized", 1)
 THEN
 DB_Mods_Registered("InnateTalents", "LaughingLeader", _Version);
+// [END_NO_OSITOOLS]
 //END_REGION
 
 //REGION LEADERLIB
